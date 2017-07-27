@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
-Implementation-Title: api
+Implementation-Title: simple
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: Juliano
-Implementation-Vendor-Id: com.api.rep
-Build-Jdk: 1.8.0_121
+Built-By: juliano.ezequiel
+Implementation-Vendor-Id: com.simple
+Build-Jdk: 1.8.0_131
 Implementation-URL: http://projects.spring.io/spring-boot/api/
 Created-By: Maven Integration for Eclipse
 Implementation-Vendor: Pivotal Software, Inc.
-Main-Class: com.api.RepApiApplication
+Main-Class: com.simple.SimpleApplication
 
