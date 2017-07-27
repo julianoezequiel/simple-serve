@@ -9,6 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.api.contantes.CONSTANTES;
+import com.api.dto.TokenDTO;
+import com.api.dto.UsuarioDTO;
+import com.api.rest.ApiRestController;
+import com.api.service.ServiceException;
+import com.api.service.auth.AuthService;
+
 
 @RestController
 public class AuthRestController extends ApiRestController {
@@ -17,8 +24,7 @@ public class AuthRestController extends ApiRestController {
 	private AuthService authService;
 
 	/**
-	 * Método para autenticação do Rep. O Rep deve enviar um o objeto<RepDTO>
-	 * contendo o número de série
+	 * Método para autenticação do usuário. 
 	 * 
 	 * @param repDTO
 	 * @return {@link TokenDTO}
@@ -26,13 +32,9 @@ public class AuthRestController extends ApiRestController {
 	 *
 	 */
 	@RequestMapping(value = CONSTANTES.URL_AUTH_SIGN, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE, method = RequestMethod.POST)
-	public ResponseEntity<TokenDTO> autenticar(@RequestBody RepDTO repDTO) throws ServiceException {
-		return new ResponseEntity<TokenDTO>(this.authService.autenticar(repDTO), HttpStatus.CREATED);
+	public ResponseEntity<TokenDTO> autenticar(@RequestBody UsuarioDTO usuarioDTO) throws ServiceException {
+		return new ResponseEntity<TokenDTO>(this.authService.autenticar(usuarioDTO), HttpStatus.CREATED);
 	}
 
-	@RequestMapping(value = CONSTANTES.URL_AUTH, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE, method = RequestMethod.POST)
-	public ResponseEntity<CriptoRnd> criptoRnd(@RequestBody RepDTO repDTO) throws ServiceException {
-		return new ResponseEntity<CriptoRnd>(this.authService.criptoRnd(repDTO), HttpStatus.CREATED);
-	}
 
 }

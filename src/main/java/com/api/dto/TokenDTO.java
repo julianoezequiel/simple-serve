@@ -1,39 +1,24 @@
 package com.api.dto;
 
-
 /**
- * Classe de envio do Token de autenticação para o Rep. Também é enviado a chave
- * de comunicação cadastrada para o Rep. O Rep utiliza a chave de comunucação
- * para realizar uma validação de segurança no Rep.
  * 
  * @author juliano.ezequiel
  *
  */
-public class TokenDTO{
+public class TokenDTO {
 
-	private static final long serialVersionUID = 1L;
-	private Integer[] token;
-	private Integer[] chaveComunicacao;
+	private String token;
 
-	public TokenDTO(Integer[] token, Integer[] chaveComunicacao) {
-		this.token = token;
-		this.chaveComunicacao = chaveComunicacao;
+	public TokenDTO(String token2) {
+		this.token = token2;
 	}
 
-	public TokenDTO() {
-		// TODO Auto-generated constructor stub
-	}
-
-	public Integer[] getToken() {
+	public String getToken() {
 		return token;
 	}
 
-	public Integer[] getChaveComunicacao() {
-		return chaveComunicacao;
-	}
-
-	public void setChaveComunicacao(Integer[] chaveComunicacao) {
-		this.chaveComunicacao = chaveComunicacao;
+	public void setToken(String token) {
+		this.token = token;
 	}
 
 	public static byte[] stringToByte(String entrada) {

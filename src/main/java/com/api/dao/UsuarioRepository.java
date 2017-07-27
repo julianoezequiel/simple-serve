@@ -1,7 +1,5 @@
 package com.api.dao;
 
-import java.util.List;
-
 import javax.transaction.Transactional;
 import javax.transaction.Transactional.TxType;
 
@@ -11,7 +9,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.api.entity.Usuario;
-
 
 /**
  * 
@@ -23,6 +20,6 @@ import com.api.entity.Usuario;
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 
 	@Query(value = "SELECT u from Usuario u where u.email = :email")
-	List<Usuario> buscarEmail(@Param("email") String email);
+	Usuario buscarPorEmail(@Param("email") String email);
 
 }

@@ -28,17 +28,20 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional = false)
 	@Column(name = "id")
 	private Integer id;
+	
 	@Size(max = 255)
-	@Column(name = "pis")
-	private String pis;
+	@Column(name = "emai")
+	private String emai;
+	
 	@Lob
-	@Column(name = "template")
-	private byte[] template;
+	@Column(name = "senha")
+	private String senha;
 
 //	@OneToMany(mappedBy = "usuarioBioId")
 //	@JsonIgnore
@@ -59,21 +62,7 @@ public class Usuario implements Serializable {
 		this.id = id;
 	}
 
-	public String getPis() {
-		return pis;
-	}
-
-	public void setPis(String pis) {
-		this.pis = pis;
-	}
-
-	public byte[] getTemplate() {
-		return template;
-	}
-
-	public void setTemplate(byte[] template) {
-		this.template = template;
-	}
+	
 
 //	public Collection<Tarefa> getTarefaCollection() {
 //		return tarefaCollection;
@@ -82,6 +71,22 @@ public class Usuario implements Serializable {
 //	public void setTarefaCollection(Collection<Tarefa> tarefaCollection) {
 //		this.tarefaCollection = tarefaCollection;
 //	}
+
+	public String getEmai() {
+		return emai;
+	}
+
+	public void setEmai(String emai) {
+		this.emai = emai;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;

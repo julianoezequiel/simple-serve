@@ -8,6 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.api.entity.Usuario;
+import com.api.service.ServiceException;
+import com.api.service.auth.UsuarioService;
+import com.api.utils.JwtUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController
@@ -16,25 +20,15 @@ public class ApiRestController {
 	public final static Logger LOGGER = LoggerFactory.getLogger(ApiRestController.class.getName());
 
 	@Autowired
-	private RepService repService;
-
+	private JwtUtil jwtUtil;
 	@Autowired
-	private JwtUtil jwtutil;
-
+	private UsuarioService usuarioService;
 	@Autowired
 	private HttpServletRequest request;
-
 	@Autowired
 	private ObjectMapper mapper;
 
-	public JwtUtil getJwtutil() {
-		return jwtutil;
-	}
-
-	public void setJwtutil(JwtUtil jwtutil) {
-		this.jwtutil = jwtutil;
-	}
-
+	
 	public HttpServletRequest getRequest() {
 		return request;
 	}
@@ -57,19 +51,19 @@ public class ApiRestController {
 	 * @return
 	 * @throws ServiceException
 	 */
-	public Rep getRepAutenticado() throws ServiceException {
-		Rep rep = this.getJwtutil().extractToken(this.getRequest());
-		if (rep == null) {
+	public Usuario getUsuarioAutenticado() throws ServiceException {
+		Usuario usuario = this.jwtUtil.extractToken(this.getRequest());
+		if (usuario == null) {
 			throw new ServiceException(HttpStatus.UNAUTHORIZED, "Token inválido");
 		}
-		return rep;
+		return usuario;
 	}
 
-	public Rep buscarRepPorNumSerie(String numSerie) throws ServiceException {
-		Rep rep = this.repService.buscarPorNumeroSerie(numSerie);
-		if (rep == null) {
-			throw new ServiceException(HttpStatus.UNAUTHORIZED, "Rep não encontrado");
+	public Usuario buscarRepPorNumSerie(String email) throws ServiceException {
+		Usuario usuario = this.usuarioService.buscarPorEmail(email);
+		if (usuario == null) {
+			throw new ServiceException(HttpStatus.UNAUTHORIZED, "Usuário ou senha inválidos");
 		}
-		return rep;
+		return usuario;
 	}
 }

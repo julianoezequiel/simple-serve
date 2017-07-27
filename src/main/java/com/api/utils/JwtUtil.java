@@ -8,6 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
+import com.api.contantes.CONSTANTES;
+import com.api.entity.Usuario;
+import com.api.service.ServiceException;
+import com.api.service.auth.UsuarioService;
+
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
@@ -17,9 +22,9 @@ import io.jsonwebtoken.SignatureAlgorithm;
 public class JwtUtil {
 
 	@Autowired
-	private RepService repService;
+	private UsuarioService usuarioService;
 	
-	public Rep parseToken(String token) throws ServiceException {
+	public Usuario parseToken(String token) throws ServiceException {
 		try {
 			if (token == null || token.equals("") || token.length() < 10) {
 				// throw new ServiceException(HttpStatus.UNAUTHORIZED);
@@ -27,10 +32,10 @@ public class JwtUtil {
 			}
 			Claims body = Jwts.parser().setSigningKey(CONSTANTES.AUTH_KEY).parseClaimsJws(token).getBody();
 			
-			Rep rep = new Rep();
-			rep.setNumeroSerie(body.getSubject());
+			Usuario usuario = new Usuario();
+			usuario.setEmai(body.getSubject());
 			
-			return repService.buscarPorNumeroSerie(rep);
+			return usuarioService.buscarPorEmail(usuario.getEmai());
 
 		} catch (JwtException | ClassCastException e) {
 			throw  new ServiceException(HttpStatus.UNAUTHORIZED);
@@ -43,7 +48,7 @@ public class JwtUtil {
 				.setExpiration(new Date(System.currentTimeMillis() + 60 * 1000 * 24)).compact();
 	}
 
-	public Rep extractToken(HttpServletRequest request) throws ServiceException {
+	public Usuario extractToken(HttpServletRequest request) throws ServiceException {
 		return this.parseToken(request.getHeader("Authorization"));
 
 	}

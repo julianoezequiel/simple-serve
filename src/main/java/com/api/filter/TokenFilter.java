@@ -12,11 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.GenericFilterBean;
 
 import com.api.contantes.CONSTANTES;
+import com.api.entity.Usuario;
 import com.api.service.ServiceException;
+import com.api.service.auth.UsuarioService;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
@@ -27,6 +30,9 @@ public class TokenFilter extends GenericFilterBean {
 
 	private final static Logger LOGGER = LoggerFactory.getLogger(TokenFilter.class.getName());
 
+	@Autowired
+	private UsuarioService usuarioService;
+	
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain)
 			throws IOException, ServletException {
@@ -42,8 +48,10 @@ public class TokenFilter extends GenericFilterBean {
 			try {
 				Claims body = Jwts.parser().setSigningKey(CONSTANTES.AUTH_KEY).parseClaimsJws(token).getBody();
 
-				Rep rep = this.repService.buscarPorNumeroSerie(body.getSubject());
-				LOGGER.info("Número Série Rep : " + rep.getNumeroSerie());
+				Usuario usuario = this.usuarioService.buscarPorEmail(body.getSubject());
+				if(usuario==null){
+					throw new ServiceException(HttpStatus.UNAUTHORIZED, "Usuário ou senha inválidos");
+				}
 
 			} catch (JwtException | ClassCastException | ServiceException e) {
 				((HttpServletResponse) response).sendError(HttpServletResponse.SC_UNAUTHORIZED, "não autorizado");
