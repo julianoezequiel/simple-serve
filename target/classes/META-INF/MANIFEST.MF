@@ -2,10 +2,10 @@ Manifest-Version: 1.0
 Implementation-Title: simple
 Implementation-Version: 0.0.1-SNAPSHOT
 Built-By: Juliano
-Implementation-Vendor-Id: com.simple
+Implementation-Vendor-Id: com.api.simple
 Build-Jdk: 1.8.0_121
 Implementation-URL: http://projects.spring.io/spring-boot/api/
 Created-By: Maven Integration for Eclipse
 Implementation-Vendor: Pivotal Software, Inc.
-Main-Class: com.simple.SimpleApiApplication
+Main-Class: com.api.SimpleApiApplication
 

@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 import com.api.contantes.CONSTANTES;
+import com.api.dto.UsuarioDTO;
+import com.api.dto.UsuarioLoginDTO;
 import com.api.entity.Usuario;
 import com.api.service.ServiceException;
 import com.api.service.auth.UsuarioService;
@@ -24,7 +26,7 @@ public class JwtUtil {
 	@Autowired
 	private UsuarioService usuarioService;
 	
-	public Usuario parseToken(String token) throws ServiceException {
+	public UsuarioDTO parseToken(String token) throws ServiceException {
 		try {
 			if (token == null || token.equals("") || token.length() < 10) {
 				// throw new ServiceException(HttpStatus.UNAUTHORIZED);
@@ -33,22 +35,28 @@ public class JwtUtil {
 			Claims body = Jwts.parser().setSigningKey(CONSTANTES.AUTH_KEY).parseClaimsJws(token).getBody();
 			
 			Usuario usuario = new Usuario();
-			usuario.setEmai(body.getSubject());
+			usuario.setEmail(body.getSubject());
 			
-			return usuarioService.buscarPorEmail(usuario.getEmai());
+			usuario = usuarioService.buscarPorEmail(usuario.getEmail());
+			
+			UsuarioDTO dto = new UsuarioDTO();
+			dto.setEmail(usuario.getEmail());
+			
+			return dto;
+			
 
 		} catch (JwtException | ClassCastException e) {
 			throw  new ServiceException(HttpStatus.UNAUTHORIZED);
 		}
 	}
 
-	public String generateToken(String serie) {
+	public String generateToken(String email) {
 		// TOKEN com 10 minuto de validade
-		return Jwts.builder().setSubject(serie).signWith(SignatureAlgorithm.HS256, CONSTANTES.AUTH_KEY)
+		return Jwts.builder().setSubject(email).signWith(SignatureAlgorithm.HS256, CONSTANTES.AUTH_KEY)
 				.setExpiration(new Date(System.currentTimeMillis() + 60 * 1000 * 24)).compact();
 	}
 
-	public Usuario extractToken(HttpServletRequest request) throws ServiceException {
+	public UsuarioDTO extractToken(HttpServletRequest request) throws ServiceException {
 		return this.parseToken(request.getHeader("Authorization"));
 
 	}

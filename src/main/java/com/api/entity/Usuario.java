@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.api.entity;
 
 import java.io.Serializable;
@@ -13,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -36,10 +30,9 @@ public class Usuario implements Serializable {
 	private Integer id;
 	
 	@Size(max = 255)
-	@Column(name = "emai")
-	private String emai;
+	@Column(name = "email")
+	private String email;
 	
-	@Lob
 	@Column(name = "senha")
 	private String senha;
 
@@ -72,12 +65,12 @@ public class Usuario implements Serializable {
 //		this.tarefaCollection = tarefaCollection;
 //	}
 
-	public String getEmai() {
-		return emai;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setEmai(String emai) {
-		this.emai = emai;
+	public void setEmail(String emai) {
+		this.email = emai;
 	}
 
 	public String getSenha() {

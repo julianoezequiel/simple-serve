@@ -45,19 +45,6 @@ public class ApiRestController {
 		this.mapper = mapper;
 	}
 
-	/**
-	 * Extrai do token o número serial do Rep e cria om objeto Rep
-	 * 
-	 * @return
-	 * @throws ServiceException
-	 */
-	public Usuario getUsuarioAutenticado() throws ServiceException {
-		Usuario usuario = this.jwtUtil.extractToken(this.getRequest());
-		if (usuario == null) {
-			throw new ServiceException(HttpStatus.UNAUTHORIZED, "Token inválido");
-		}
-		return usuario;
-	}
 
 	public Usuario buscarRepPorNumSerie(String email) throws ServiceException {
 		Usuario usuario = this.usuarioService.buscarPorEmail(email);

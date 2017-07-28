@@ -1,11 +1,14 @@
 package com.api.service.auth;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import com.api.dto.TokenDTO;
 import com.api.dto.UsuarioDTO;
+import com.api.dto.UsuarioLoginDTO;
 import com.api.entity.Usuario;
 import com.api.service.ApiService;
 import com.api.service.ServiceException;
@@ -34,19 +37,19 @@ public class AuthService extends ApiService {
 	 * @return TokenDTO
 	 * @throws ServiceException
 	 */
-	public TokenDTO autenticar(UsuarioDTO usuarioDTO) throws ServiceException {
+	public TokenDTO autenticar(UsuarioLoginDTO usuarioLoginDTO) throws ServiceException {
 
-		LOGGER.info("Login usuário : " + usuarioDTO.getEmail());
+		LOGGER.info("Login usuário : " + usuarioLoginDTO.getEmail());
 		// Campo obrigatório
-		if (usuarioDTO.getEmail() == null || usuarioDTO.getSenha() == null) {
+		if (usuarioLoginDTO.getEmail() == null || usuarioLoginDTO.getSenha() == null) {
 			throw new ServiceException(HttpStatus.UNAUTHORIZED, "Usuário ou senha inválidos");
 		}
 
 		// busca o usuario na base
-		Usuario usuario = this.usuarioService.buscarPorEmail(usuarioDTO.getEmail());
+		Usuario usuario = this.usuarioService.buscarPorEmail(usuarioLoginDTO.getEmail());
 
-		if (usuario.getSenha().equals(usuarioDTO.getSenha())) {
-			token = jwtUtil.generateToken(usuario.getEmai());
+		if (usuario != null && usuario.getSenha().equals(usuarioLoginDTO.getSenha())) {
+			token = jwtUtil.generateToken(usuario.getEmail());
 		} else {
 			throw new ServiceException(HttpStatus.UNAUTHORIZED, "Usuário ou senha inválidos");
 		}
@@ -56,6 +59,15 @@ public class AuthService extends ApiService {
 		TokenDTO tokenDTO = new TokenDTO(token);
 
 		return tokenDTO;
+	}
+
+
+	public UsuarioDTO userAutenticado(HttpServletRequest request) throws ServiceException {
+		UsuarioDTO usuario = this.jwtUtil.extractToken(request);
+		if (usuario == null) {
+			throw new ServiceException(HttpStatus.UNAUTHORIZED, "Token inválido");
+		}
+		return usuario;
 	}
 
 }

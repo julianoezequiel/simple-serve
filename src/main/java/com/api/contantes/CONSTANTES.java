@@ -36,8 +36,7 @@ public class CONSTANTES {
 	public static final String URL_ATUALIZACAO_PAGINAS = "/restrict/atualizarpaginas";
 
 	public static final String URL_AUTH = "/auth";
-	public static final String URL_STATUS = "/restrict/status";
-	public static final String URL_AUTH_SIGN = "/auth/sign";
+	public static final String URL_USER = "/restrict/usuario";
 
 	/**
 	 * Tipos de Operações utilizadas pelo REP
