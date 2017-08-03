@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-04-05T14:27:34 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorio_padrao" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty" uuid="7a683af8-30c5-4038-9920-ed717d8bb428">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="estidoTextoLabel" mode="Opaque" markup="html" fontName="Arial" fontSize="9" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+	<style name="estiloTextoTituloPagina" mode="Opaque" markup="html" fontName="Arial" fontSize="10" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+	<style name="estidoTextoValor" mode="Opaque" markup="html" pattern="" fontName="Arial" fontSize="9"/>
+	<subDataset name="Dataset1" uuid="85b3f493-1afe-4914-b05f-42cf6fc817ce">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
+	<subDataset name="Dataset2" uuid="329ffcfb-8e6b-4b74-8993-5082ab0b5703">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
+	<parameter name="IMG_LOGO_CABECALHO" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="22" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<staticText>
+				<reportElement style="estiloTextoTituloPagina" x="0" y="8" width="293" height="12" uuid="4631d4ed-2189-47a5-a6de-a536c4d5567e">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[Relatório Exemplo]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="20" width="555" height="1" uuid="fc051533-3852-436a-8153-12daa7f83d6e"/>
+			</line>
+			<image hAlign="Right" isLazy="true">
+				<reportElement mode="Opaque" x="417" y="-3" width="138" height="22" uuid="ad18b0a7-99c4-4081-ba04-42ea03e1f773">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<imageExpression><![CDATA[$P{IMG_LOGO_CABECALHO}]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="0" y="10" width="79" height="11" uuid="1e3d8a6a-1b87-4eef-8bd8-5a056d9a800b">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[Exemplo Label:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="30" width="555" height="1" uuid="3648888e-b77d-43ae-bfa1-44cac2ca1e87"/>
+			</line>
+			<staticText>
+				<reportElement style="estidoTextoValor" x="80" y="10" width="100" height="11" uuid="4ca7f35a-bb1a-485f-8bf7-cbb7f82ec1e5">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[Exemplo Valor]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="59" splitType="Stretch">
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="0" y="1" width="100" height="11" uuid="435a22de-5f19-4848-aeef-119b5940297e">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[Exemplo detalhe 1:]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="0" y="12" width="100" height="44" uuid="d3c6a13f-866a-4fd0-b2e4-b9dcd74abd26"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="Dataset2" uuid="a6f34609-6067-4847-bc5c-403a42704e51">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:listContents height="44" width="100">
+						<staticText>
+							<reportElement style="estidoTextoValor" x="0" y="0" width="100" height="14" uuid="46115e1d-f6ce-4054-b0c0-fc5b71904faa"/>
+							<text><![CDATA[- Exemplo Item 1]]></text>
+						</staticText>
+						<staticText>
+							<reportElement style="estidoTextoValor" x="0" y="16" width="100" height="14" uuid="9db74e86-6bd0-4e08-b94e-9c4a00711dda"/>
+							<text><![CDATA[- Exemplo Item 2]]></text>
+						</staticText>
+						<staticText>
+							<reportElement style="estidoTextoValor" x="0" y="30" width="100" height="14" uuid="35676fe0-e8b5-4dae-a396-5dab0eafd3c6"/>
+							<text><![CDATA[- Exemplo Item 3]]></text>
+						</staticText>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="100" y="1" width="100" height="11" uuid="58a30fc5-7cad-4491-815a-277262818077">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[Exemplo detalhe 2:]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="100" y="13" width="100" height="44" uuid="3a3b691a-3617-4e9d-9297-a5ebd24c1619"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="Dataset2" uuid="26bfaace-c43b-4452-841b-341b48bc09a9">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:listContents height="44" width="100">
+						<staticText>
+							<reportElement style="estidoTextoValor" x="0" y="0" width="100" height="14" uuid="70c23f16-e2f9-4506-a918-05610d40556c"/>
+							<text><![CDATA[- Exemplo Item 1]]></text>
+						</staticText>
+						<staticText>
+							<reportElement style="estidoTextoValor" x="0" y="16" width="100" height="14" uuid="20f3d85d-815b-4aae-8432-2f5837565857"/>
+							<text><![CDATA[- Exemplo Item 2]]></text>
+						</staticText>
+						<staticText>
+							<reportElement style="estidoTextoValor" x="0" y="30" width="100" height="14" uuid="8467adef-baad-48ad-ad26-1bdb68a1c519"/>
+							<text><![CDATA[- Exemplo Item 3]]></text>
+						</staticText>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<componentElement>
+				<reportElement x="203" y="13" width="100" height="44" uuid="0a1a9145-beb5-497b-8810-eda59b73fe16"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="Dataset2" uuid="835902d6-6417-43ea-b8d4-f41d9b9287f9">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:listContents height="44" width="100">
+						<staticText>
+							<reportElement style="estidoTextoValor" x="0" y="0" width="100" height="14" uuid="1c70d534-12c4-409d-b7dd-507c085e413f"/>
+							<text><![CDATA[- Exemplo Item 1]]></text>
+						</staticText>
+						<staticText>
+							<reportElement style="estidoTextoValor" x="0" y="16" width="100" height="14" uuid="db413954-bac2-444a-89f2-3908489bd911"/>
+							<text><![CDATA[- Exemplo Item 2]]></text>
+						</staticText>
+						<staticText>
+							<reportElement style="estidoTextoValor" x="0" y="30" width="100" height="14" uuid="4f0ea57b-6285-4360-a4d5-8665054ea1ae"/>
+							<text><![CDATA[- Exemplo Item 3]]></text>
+						</staticText>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="203" y="1" width="100" height="11" uuid="78c1dba5-c2f2-4696-abca-ef14ac36c9d2">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[Exemplo detalhe 3:]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="13" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="4050f1af-587a-445e-b45d-e61d60fe0eb0"/>
+			</line>
+			<staticText>
+				<reportElement style="estidoTextoValor" x="493" y="2" width="40" height="11" uuid="9595356c-6aab-4c37-8f29-702f114dc8c5">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[Página:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="estidoTextoValor" x="533" y="2" width="20" height="11" uuid="c2ef2352-ec97-41bb-a8c9-4fd6a20255fc">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy HH:mm">
+				<reportElement style="estidoTextoValor" x="4" y="2" width="100" height="11" uuid="36580c77-a753-4821-ada9-ba188f618f5d">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

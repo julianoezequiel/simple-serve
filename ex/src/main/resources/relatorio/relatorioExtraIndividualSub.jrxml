@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-05-19T10:05:58 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorioExtrasIndividualSub" pageWidth="802" pageHeight="594" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" whenResourceMissingType="Empty" uuid="7a683af8-30c5-4038-9920-ed717d8bb428">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<style name="estidoTextoLabel" mode="Transparent" markup="html" fontName="Arial" fontSize="9" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+	<style name="estiloTextoTituloPagina" mode="Transparent" markup="html" fontName="Arial" fontSize="10" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+	<style name="estidoTextoValor" mode="Transparent" markup="html" pattern="" fontName="Arial" fontSize="9"/>
+	<style name="estioTextoDetalheValor" mode="Transparent" markup="html" pattern="" fontName="Arial" fontSize="8"/>
+	<style name="Zebra" mode="Opaque">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{COLUMN_NUMBER}%2 == 1]]></conditionExpression>
+			<style backcolor="#CAC5BB"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="datasetHorariosPrevistos" whenResourceMissingType="Empty" uuid="1d82928f-3c98-42ca-90c6-a8189aeccc37">
+		<queryString>
+			<![CDATA[_THIS]]>
+		</queryString>
+		<field name="horarioEntrada" class="java.util.Date"/>
+		<field name="horarioSaida" class="java.util.Date"/>
+	</subDataset>
+	<subDataset name="datasetHorariosTrabalhados" uuid="376cf10c-599d-4995-b0e3-9ca2d08e8eef">
+		<queryString>
+			<![CDATA[_THIS]]>
+		</queryString>
+		<field name="horarioEntrada" class="java.util.Date"/>
+		<field name="horarioSaida" class="java.util.Date"/>
+	</subDataset>
+	<parameter name="FILTRO_IS_CAMPOS_ZERADO" class="java.lang.Boolean"/>
+	<parameter name="FILTRO_IS_TOTAL_HORAS_JORNADA" class="java.lang.Boolean"/>
+	<field name="horariosPrevistosList" class="java.util.Collection"/>
+	<field name="horariosTrabalhadosList" class="java.util.Collection"/>
+	<field name="saldoNormais" class="com.topdata.toppontoweb.services.gerafrequencia.entity.saldo.Saldo"/>
+	<field name="saldoExtras" class="com.topdata.toppontoweb.services.gerafrequencia.entity.saldo.SaldoExtras"/>
+	<field name="saldoAusencias" class="com.topdata.toppontoweb.services.gerafrequencia.entity.saldo.SaldoAusencias"/>
+	<field name="data" class="java.util.Date"/>
+	<field name="regras" class="com.topdata.toppontoweb.services.gerafrequencia.entity.regras.Regra"/>
+	<field name="bancodeHoras" class="com.topdata.toppontoweb.services.gerafrequencia.entity.bancodehoras.BancodeHorasApi"/>
+	<field name="percentualAdicionalNoturno" class="java.lang.Double"/>
+	<field name="horasTrabalhadas" class="com.topdata.toppontoweb.services.gerafrequencia.entity.saldo.SaldoTrabalhadas"/>
+	<field name="_THIS" class="com.topdata.toppontoweb.services.gerafrequencia.entity.calculo.SaidaDia"/>
+	<field name="diferencaAdicionalNoturnoHoraExtra" class="java.time.Duration"/>
+	<variable name="ULTIMO_DIA" class="com.topdata.toppontoweb.services.gerafrequencia.entity.calculo.SaidaDia">
+		<variableExpression><![CDATA[$F{_THIS}]]></variableExpression>
+		<initialValueExpression><![CDATA[new com.topdata.toppontoweb.services.gerafrequencia.entity.calculo.SaidaDia()]]></initialValueExpression>
+	</variable>
+	<variable name="DIFERENCA_ADICIONAL_NOTURNO_HORA_EXTRA_TOTAL" class="java.time.Duration">
+		<variableExpression><![CDATA[$V{DIFERENCA_ADICIONAL_NOTURNO_HORA_EXTRA_TOTAL}.plus( $F{diferencaAdicionalNoturnoHoraExtra} )]]></variableExpression>
+		<initialValueExpression><![CDATA[java.time.Duration.ZERO]]></initialValueExpression>
+	</variable>
+	<columnHeader>
+		<band height="22">
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="2" y="0" width="61" height="11" uuid="252180b6-ab5e-499d-ab05-1be95966fb46">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[Dia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="63" y="0" width="150" height="11" uuid="1b7c390b-4a55-4cef-b3a9-7fcfff52c9e9">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Turno de Trabalho]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="63" y="11" width="35" height="11" uuid="47e4be88-34ba-426d-83d3-18fc7c385169">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Entrada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="98" y="11" width="35" height="11" uuid="0340322a-9a31-476d-ad30-a88db009d328">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Saída]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="138" y="11" width="35" height="11" uuid="772adcec-82c0-4b54-8b59-a843581e1dc6">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Entrada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="173" y="11" width="35" height="11" uuid="0edf5329-ff64-499d-af35-552b116ca9db">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Saída]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="213" y="11" width="35" height="11" uuid="e04a47b8-1555-4c40-9316-b97d5a76d421">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Entrada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="213" y="0" width="151" height="11" uuid="8619a655-a1cd-4a90-b908-cbfdb9ea1298">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Jornada realizada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="248" y="11" width="35" height="11" uuid="efb911c6-c761-4c94-a00e-f73c14a043e9">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Saída]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="288" y="11" width="35" height="11" uuid="2c49432d-b88f-444e-92b7-1a0b10b111db">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Entrada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="323" y="11" width="35" height="11" uuid="2a052092-ef1d-46f8-a021-61aa6c9e8dae">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Saída]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="369" y="11" width="40" height="11" uuid="e59eedc6-ec6e-4a44-a455-e2df11893b08">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Diurnas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="409" y="11" width="40" height="11" uuid="36504f46-ad91-44f1-b506-c589c7c26d37">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Noturnas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="369" y="0" width="136" height="11" uuid="0404f3c1-80a8-4f2b-988b-1eb24170cc92">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Extras]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="515" y="0" width="96" height="11" uuid="5de26d06-e28c-4454-8fa3-0b3a852db173">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Adicional Noturno]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="561" y="11" width="50" height="11" uuid="da7a54e9-c4f1-458b-835c-a56303c7c8d1">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Percentual]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="515" y="11" width="46" height="11" uuid="4950e964-015b-4463-ab9b-7b9f9e649ed2">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Diferença]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="621" y="11" width="181" height="11" uuid="665e3460-e8ad-46be-bf6a-2f8968b83001">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[Observações]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="449" y="11" width="56" height="11" uuid="a6836827-7f07-4b24-b130-74d16bac3979">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Acumulado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="10" splitType="Prevent">
+			<printWhenExpression><![CDATA[$F{_THIS}  !=  null]]></printWhenExpression>
+			<frame borderSplitType="NoBorders">
+				<reportElement style="Zebra" mode="Opaque" x="0" y="0" width="802" height="10" backcolor="#FFFFFF" uuid="2ca7b638-b7e9-44fc-a3a2-06ca0c8369a4"/>
+				<textField pattern="EEE dd/MM">
+					<reportElement style="estioTextoDetalheValor" mode="Transparent" x="0" y="0" width="45" height="10" uuid="598a39fe-fb1d-4fda-bf54-cb1eea2c10d4">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{data}]]></textFieldExpression>
+				</textField>
+				<componentElement>
+					<reportElement mode="Transparent" x="63" y="0" width="150" height="10" isPrintWhenDetailOverflows="true" uuid="7586deae-1457-4211-8600-bf3e80aafa5e">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Horizontal">
+						<datasetRun subDataset="datasetHorariosPrevistos" uuid="c23608cc-3bea-4746-9a74-c7e23699e203">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(com.topdata.toppontoweb.utils.Utils.CONFIGURAR.HORARIO_MARCACAO($F{horariosPrevistosList}, 2 ) )]]></dataSourceExpression>
+						</datasetRun>
+						<jr:listContents height="10" width="75">
+							<textField pattern="">
+								<reportElement style="estioTextoDetalheValor" x="0" y="0" width="35" height="10" uuid="a49ed63c-6488-4ae1-b568-e97a946fa82d">
+									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+								</reportElement>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[com.topdata.toppontoweb.utils.Utils.MASK.HORA_API($F{horarioEntrada}, new Boolean(true) )]]></textFieldExpression>
+							</textField>
+							<textField pattern="">
+								<reportElement style="estioTextoDetalheValor" x="35" y="0" width="35" height="10" uuid="9206cee6-2fd0-48f0-b36a-dca28c2ae27b">
+									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+								</reportElement>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[com.topdata.toppontoweb.utils.Utils.MASK.HORA_API($F{horarioSaida} , new Boolean(true) )]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<componentElement>
+					<reportElement mode="Transparent" x="213" y="0" width="151" height="10" isPrintWhenDetailOverflows="true" uuid="b12a2a98-352f-4a6d-b145-a15d7006f00f">
+						<property name="com.jaspersoft.studio.unit.CONTENTS.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.CONTENTS.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Horizontal">
+						<datasetRun subDataset="datasetHorariosTrabalhados" uuid="f24de002-5591-48e5-88b1-1815b9cf1bc9">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(com.topdata.toppontoweb.utils.Utils.CONFIGURAR.MARCACAO($F{horariosTrabalhadosList}, 2, $F{horariosPrevistosList} != null?$F{horariosPrevistosList}.size() : 0))]]></dataSourceExpression>
+						</datasetRun>
+						<jr:listContents height="10" width="75">
+							<textField pattern="" isBlankWhenNull="true">
+								<reportElement style="estioTextoDetalheValor" x="0" y="0" width="35" height="10" uuid="b844673f-b8fe-4cca-afde-9f4355dd2f4c">
+									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+								</reportElement>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[com.topdata.toppontoweb.utils.Utils.MASK.HORA_API($F{horarioEntrada}, new Boolean(true) )]]></textFieldExpression>
+							</textField>
+							<textField pattern="" isBlankWhenNull="true">
+								<reportElement style="estioTextoDetalheValor" x="35" y="0" width="35" height="10" uuid="3d947317-4115-485b-984c-713a15e4e282">
+									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+								</reportElement>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[com.topdata.toppontoweb.utils.Utils.MASK.HORA_API($F{horarioSaida}, new Boolean(true) )]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<textField isBlankWhenNull="true">
+					<reportElement style="estioTextoDetalheValor" mode="Transparent" x="45" y="0" width="18" height="10" uuid="89ab8518-92e5-4806-95d6-4713e926daaa">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{regras}.getLegendaStatusEspelho()]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="estioTextoDetalheValor" mode="Transparent" x="515" y="0" width="46" height="10" uuid="996b53e0-3696-45a2-811d-16580482e449">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[com.topdata.toppontoweb.utils.Utils.MASK.HORA($F{horasTrabalhadas}.getDiferencaadicionalnoturno(), new Boolean(false), 2)]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="estioTextoDetalheValor" mode="Transparent" x="621" y="0" width="181" height="10" uuid="11f1b485-8769-45cd-84ae-f7ef6cb218ec">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left"/>
+					<textFieldExpression><![CDATA[$F{regras}.getObservacoes()]]></textFieldExpression>
+				</textField>
+				<textField pattern="#00.00000%">
+					<reportElement style="estioTextoDetalheValor" mode="Transparent" x="561" y="0" width="50" height="10" uuid="bff122f0-2dee-4581-8135-108ff11afb1d">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{percentualAdicionalNoturno} != null ? ($F{percentualAdicionalNoturno}/100) : 0]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="estioTextoDetalheValor" mode="Transparent" x="369" y="0" width="40" height="10" uuid="0f9fba0f-9fac-401a-8fb0-fe0135510deb">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[com.topdata.toppontoweb.utils.Utils.MASK.HORA($F{saldoExtras}.getDiurnas(), new Boolean(false), 2)]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="estioTextoDetalheValor" mode="Transparent" x="409" y="0" width="40" height="10" uuid="1a4858a8-ed1d-45fd-a642-4b9562485af1">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[com.topdata.toppontoweb.utils.Utils.MASK.HORA($F{saldoExtras}.getNoturnas(), new Boolean(false), 2)]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="estioTextoDetalheValor" mode="Transparent" x="449" y="0" width="56" height="10" uuid="1028cd54-1bf6-4104-8e96-b73289db3359">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[com.topdata.toppontoweb.utils.Utils.MASK.HORA($F{saldoExtras}.getDiurnas().plus($F{saldoExtras}.getNoturnas()), new Boolean(false), 3)]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+</jasperReport>

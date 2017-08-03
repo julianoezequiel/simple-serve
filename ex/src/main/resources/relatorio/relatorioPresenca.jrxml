@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-07-11T17:11:58 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorioPresenca" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty" uuid="7a683af8-30c5-4038-9920-ed717d8bb428">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="estidoTextoLabel" mode="Opaque" markup="html" fontName="Arial" fontSize="9" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+	<style name="estiloTextoTituloPagina" mode="Opaque" markup="html" fontName="Arial" fontSize="10" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+	<style name="estidoTextoValor" mode="Opaque" markup="html" pattern="" fontName="Arial" fontSize="9"/>
+	<subDataset name="datasetSaidaPadrao" uuid="0083edb1-5d9b-441f-bd74-40d14213cca4">
+		<queryString>
+			<![CDATA[_THIS]]>
+		</queryString>
+		<field name="saidaDiaList" class="java.util.Collection"/>
+		<field name="funcionario" class="com.topdata.toppontoweb.entity.funcionario.Funcionario"/>
+	</subDataset>
+	<subDataset name="dataSetSaidaDia" uuid="a0a24a67-2c42-4762-9cae-63db2f79cf29">
+		<queryString>
+			<![CDATA[_THIS]]>
+		</queryString>
+		<field name="regras" class="com.topdata.toppontoweb.services.gerafrequencia.entity.regras.Regra"/>
+		<field name="horariosTrabalhadosPresencaList" class="java.util.Collection"/>
+	</subDataset>
+	<subDataset name="datasetHorariosTrabalhadosPresenca" uuid="faba9977-fc01-4597-8b27-66da2934c7e9">
+		<queryString>
+			<![CDATA[_THIS]]>
+		</queryString>
+		<field name="horarioEntrada" class="java.util.Date"/>
+		<field name="horarioSaida" class="java.util.Date"/>
+		<field name="statusEntrada" class="java.lang.String"/>
+		<field name="statusSaida" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="IMG_LOGO_CABECALHO" class="java.lang.String"/>
+	<field name="empresa" class="com.topdata.toppontoweb.entity.empresa.Empresa"/>
+	<field name="saidaPadraoList" class="java.util.Collection"/>
+	<pageHeader>
+		<band height="75" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<staticText>
+				<reportElement style="estiloTextoTituloPagina" x="0" y="59" width="120" height="12" uuid="4631d4ed-2189-47a5-a6de-a536c4d5567e">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[Relatório de presença]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="73" width="555" height="1" uuid="fc051533-3852-436a-8153-12daa7f83d6e"/>
+			</line>
+			<image hAlign="Right" isLazy="true">
+				<reportElement mode="Opaque" x="417" y="-3" width="138" height="22" uuid="ad18b0a7-99c4-4081-ba04-42ea03e1f773">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<imageExpression><![CDATA[$P{IMG_LOGO_CABECALHO}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="409" y="61" width="43" height="11" uuid="8a5398c9-1ddc-48bd-a7f6-da6c68c43937">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[Emissão:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="57" width="555" height="1" uuid="052bfadf-078e-4d6f-b713-ff173e429991"/>
+			</line>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="338" y="11" width="48" height="11" uuid="aa4825ec-db69-4e52-921d-61540951d256">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[Legenda:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="estidoTextoValor" x="0" y="0" width="349" height="11" uuid="a2d9ffd7-6415-437d-8628-41ed64f31881">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{empresa}.getRazaoSocial()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="estidoTextoValor" x="0" y="11" width="336" height="11" uuid="95117d89-8ae2-485b-9c4b-a5ab4abe0e9a">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{empresa}.getEndereco()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="estidoTextoValor" x="0" y="22" width="150" height="11" uuid="4fe919b6-e5d1-4e05-a7fa-2016d7686519">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{empresa}.getCidade()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="estidoTextoValor" x="150" y="22" width="16" height="11" uuid="e2cfd01a-55bb-4c21-9df0-bfc8f9d70848">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{empresa}.getUf()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="estidoTextoValor" x="173" y="22" width="164" height="11" uuid="0af86fa9-1032-4500-855d-b70b5fa3a77e">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{empresa}.getCep()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="" style="estidoTextoLabel" mode="Transparent" x="0" y="33" width="45" height="11" uuid="237b39c5-0530-40d8-a214-d21d7d36d5ba"/>
+				<textFieldExpression><![CDATA[$F{empresa}.getTipoDocumento().getDescricao().toUpperCase() + ":"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="estidoTextoValor" mode="Transparent" x="45" y="33" width="292" height="11" uuid="46742633-d125-448d-a565-036fa5903283"/>
+				<textFieldExpression><![CDATA[com.topdata.toppontoweb.utils.Utils.MASK.DOCUMENTO($F{empresa}.getTipoDocumento(), $F{empresa}.getDocumento())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="estidoTextoValor" x="338" y="22" width="66" height="11" uuid="c58fb203-1587-43dc-8c39-484fd5a73397">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[ST - Status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoValor" x="338" y="33" width="66" height="11" uuid="24eb3127-1f94-4475-b301-0582a88c5482">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[A - Afastamento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoValor" x="472" y="22" width="84" height="11" uuid="c47534e4-eed8-45f6-805b-8954604900e1">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[E - Entrada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoValor" x="404" y="22" width="68" height="11" uuid="6666979c-d20e-4178-a15a-706ff346501d">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[S - Saída]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoValor" x="472" y="33" width="84" height="11" uuid="b2f9d4e1-e5d0-443b-9c07-3569ba29ec99">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[EX - Entrada extra]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoValor" x="404" y="33" width="68" height="11" uuid="81fc141c-d92f-4471-ad3c-253d76d2a746">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[SX - Saída extra]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoValor" x="338" y="44" width="66" height="11" uuid="48eea362-e0aa-4ed2-b02c-6b0e5e8a78b5">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[PT - Presente]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy HH:mm" isBlankWhenNull="true">
+				<reportElement style="estidoTextoValor" x="452" y="61" width="100" height="11" uuid="51f6877b-6342-48a5-8813-7e8d3fff13b0">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="0" y="2" width="46" height="11" isPrintWhenDetailOverflows="true" uuid="d16bf5e1-c432-423e-8dc6-42e632b60a57">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[Matrícula]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="46" y="2" width="158" height="11" isPrintWhenDetailOverflows="true" uuid="c2c2103b-8b7d-4916-84f5-90e1f2bccde8">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[Funcionário]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="363" y="2" width="192" height="11" isPrintWhenDetailOverflows="true" uuid="bb0e9014-bf78-4eb3-9fd4-b4ad33e0a67b">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[Marcações de hoje]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="204" y="2" width="144" height="11" isPrintWhenDetailOverflows="true" uuid="f7225efe-3e86-42c2-afd2-9358a1edd815">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[Departamento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="348" y="2" width="15" height="11" isPrintWhenDetailOverflows="true" uuid="ca116ff5-f1e8-45b5-b0cd-da2188bb259e">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[ST]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="0" y="13" width="555" height="11" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true" uuid="26754f51-555e-4ccc-8344-152447d4acf8">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="datasetSaidaPadrao" uuid="d5b55406-303b-4bf3-ab12-831edcb8a254">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{saidaPadraoList})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="11" width="555">
+						<textField isBlankWhenNull="true">
+							<reportElement style="estidoTextoValor" x="0" y="0" width="46" height="11" uuid="191a0636-6c5e-4e76-ab90-b7ef0d059fa9">
+								<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+								<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+							</reportElement>
+							<textFieldExpression><![CDATA[$F{funcionario}.getMatricula()]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement style="estidoTextoValor" x="46" y="0" width="158" height="11" isPrintWhenDetailOverflows="true" uuid="95fd1f17-6cbb-4cb1-ab66-bdeb1baa84ca">
+								<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+								<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+							</reportElement>
+							<textFieldExpression><![CDATA[$F{funcionario}.getNome()]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement style="estidoTextoValor" x="204" y="0" width="144" height="11" isPrintWhenDetailOverflows="true" uuid="f063ee2f-d8ab-46d7-aaa7-b6cba3ff01b7">
+								<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+								<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+							</reportElement>
+							<textFieldExpression><![CDATA[$F{funcionario}.getDepartamento().getDescricao()]]></textFieldExpression>
+						</textField>
+						<componentElement>
+							<reportElement x="348" y="0" width="207" height="11" uuid="db01155c-bcf9-42e3-a9e7-358cd122039b"/>
+							<jr:list printOrder="Horizontal">
+								<datasetRun subDataset="dataSetSaidaDia" uuid="b028bb92-1b84-4369-8b12-645fccb8ef25">
+									<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{saidaDiaList})]]></dataSourceExpression>
+								</datasetRun>
+								<jr:listContents height="11" width="207">
+									<textField>
+										<reportElement style="estidoTextoValor" x="0" y="0" width="15" height="11" uuid="d7022528-9fbd-4b1b-8a8a-b6231d20db72">
+											<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+											<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+										</reportElement>
+										<textElement textAlignment="Center"/>
+										<textFieldExpression><![CDATA[$F{regras}.getLegendaStatusPresenca()]]></textFieldExpression>
+									</textField>
+									<componentElement>
+										<reportElement x="15" y="0" width="192" height="11" uuid="02871f8a-0fc8-406d-a7a6-304d3541ef75">
+											<property name="com.jaspersoft.studio.unit.CONTENTS.width" value="pixel"/>
+										</reportElement>
+										<jr:list printOrder="Horizontal">
+											<datasetRun subDataset="datasetHorariosTrabalhadosPresenca" uuid="47620b7a-dd31-4a9c-a1b5-6a5255189179">
+												<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{horariosTrabalhadosPresencaList})]]></dataSourceExpression>
+											</datasetRun>
+											<jr:listContents height="11" width="96">
+												<textField pattern="" isBlankWhenNull="true">
+													<reportElement style="estidoTextoValor" x="46" y="0" width="25" height="11" uuid="ee00e6b2-9687-4559-a05d-0c5f7a247f27">
+														<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+													</reportElement>
+													<textFieldExpression><![CDATA[com.topdata.toppontoweb.utils.Utils.MASK.HORA($F{horarioSaida})]]></textFieldExpression>
+												</textField>
+												<textField pattern="" isBlankWhenNull="true">
+													<reportElement style="estidoTextoValor" x="0" y="0" width="25" height="11" uuid="5759d108-b6c4-48a4-9b3a-c3eb17f328f7">
+														<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+														<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+													</reportElement>
+													<textFieldExpression><![CDATA[com.topdata.toppontoweb.utils.Utils.MASK.HORA($F{horarioEntrada})]]></textFieldExpression>
+												</textField>
+												<textField>
+													<reportElement style="estidoTextoValor" x="25" y="0" width="20" height="11" uuid="383fe374-9e71-4201-870b-63e0cace0e84">
+														<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+													</reportElement>
+													<textFieldExpression><![CDATA[$F{statusEntrada} != null? "("+$F{statusEntrada}+")" : ""]]></textFieldExpression>
+												</textField>
+												<textField>
+													<reportElement style="estidoTextoValor" x="71" y="0" width="20" height="11" uuid="9c95b95d-edfd-4c58-b9f2-28c4185f9e0a">
+														<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+														<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+													</reportElement>
+													<textFieldExpression><![CDATA[$F{statusSaida} != null? "("+$F{statusSaida}+")" : ""]]></textFieldExpression>
+												</textField>
+											</jr:listContents>
+										</jr:list>
+									</componentElement>
+								</jr:listContents>
+							</jr:list>
+						</componentElement>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<break>
+				<reportElement x="0" y="24" width="98" height="1" uuid="d6ae0418-7565-4e9a-8d18-81233eb33f98">
+					<printWhenExpression><![CDATA[new Boolean(true)]]></printWhenExpression>
+				</reportElement>
+			</break>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="13" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="4050f1af-587a-445e-b45d-e61d60fe0eb0"/>
+			</line>
+			<staticText>
+				<reportElement style="estidoTextoValor" x="493" y="2" width="40" height="11" uuid="9595356c-6aab-4c37-8f29-702f114dc8c5"/>
+				<text><![CDATA[Página:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="estidoTextoValor" x="533" y="2" width="20" height="11" uuid="c2ef2352-ec97-41bb-a8c9-4fd6a20255fc"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy HH:mm">
+				<reportElement style="estidoTextoValor" x="4" y="2" width="100" height="11" uuid="36580c77-a753-4821-ada9-ba188f618f5d">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

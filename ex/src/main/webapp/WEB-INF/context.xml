@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+			http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.0.xsd
+			http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+			http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.0.xsd">
+
+    <context:annotation-config/>
+
+    <!-- DATABASE SETUP -->        
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+        <!--<property name="url" value="jdbc:sqlserver://SW-TOMCAT\SQL2012;databaseName=TopPontoWeb"/>-->
+         <property name="url" value="jdbc:sqlserver://SW-TOMCAT\SQL2012;databaseName=TopPontoWeb_Desenv"/>
+        <!--<property name="url" value="jdbc:sqlserver://SW-TOMCAT\SQL2012;databaseName=TopPontoWeb_Enio"/>-->
+        <!--<property name="url" value="jdbc:sqlserver://SW-TOMCAT\SQL2012;databaseName=TopPontoWeb_tharle"/>-->
+        <property name="username" value="${database.username}" />
+        <property name="password" value="${database.password}" />
+    </bean>
+      
+<!--heroku teste Postgres-->
+<!--    <bean class="java.net.URI" id="dbUrl">
+        <constructor-arg value="#{systemEnvironment['DATABASE_URL']}"/>
+    </bean>
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="url" value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + ':' + @dbUrl.getPort() + @dbUrl.getPath() }"/>
+        <property name="username" value="#{ @dbUrl.getUserInfo().split(':')[0] }"/>
+        <property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }"/>
+    </bean> -->
+    
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <!-- SMTP settings -->
+        <property name="host" value="${smtp.host}" />
+        <property name="port" value="${smtp.port}" />
+        <property name="username" value="${smtp.username}" />
+        <property name="password" value="${smtp.password}" />
+
+        <property name="javaMailProperties">
+            <!-- additional properties specific to JavaMail -->
+            <props>
+                <prop key="mail.transport.protocol">smtp</prop>
+                <prop key="mail.smtp.auth">true</prop>
+                <!--<prop key="mail.smtp.starttls.enable">true</prop>-->
+            </props>
+        </property>
+    </bean>
+    
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="packagesToScan" value="com.topdata.toppontoweb.entity" />
+        <!--<property name="persistenceUnitName" value="examplePU" />-->
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="generateDdl" value="true" />
+                <!--<property name="showSql" value="true" />-->
+                <!--<property name="databasePlatform" value="org.hibernate.dialect.PostgreSQLDialect" />-->
+                <property name="databasePlatform" value="org.hibernate.dialect.SQLServerDialect" />              
+            </bean>
+        </property>
+        <property name="jpaProperties">
+            <props>
+                <!--<prop key="hibernate.hbm2ddl.auto">create-drop</prop>-->
+                <!--<prop key="hibernate.hbm2ddl.auto">update</prop>-->
+                <prop key="hibernate.hbm2ddl.auto">validate</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
+<!--                <prop key="hibernate.jdbc.time_zone">UTC</prop>-->
+            </props>
+        </property>
+    </bean>
+         
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory" />
+    </bean>
+    
+    <bean id="autenticacaoDao" class="com.topdata.toppontoweb.dao.AutenticacaoDao"></bean>
+          
+    <bean id="dao" class="com.topdata.toppontoweb.dao.Dao"></bean>
+    
+    <bean class="com.topdata.toppontoweb.utils.constantes.CONSTANTES"></bean>
+    <bean id="servicoTopPonto" class="com.topdata.toppontoweb.services.TopPontoService"></bean>
+    <bean id="operadorService" class="com.topdata.toppontoweb.services.permissoes.OperadorService"></bean>
+    <bean id="vFilterLoginImpl" class="com.topdata.toppontoweb.services.autenticacao.FilterLogin"></bean>
+        
+        
+    <!--descomentar para inicializar a base de dados-->
+    <!--        
+    <bean id="dataBaseInitializer" class="com.topdata.toppontoweb.dao.DataBaseInitializer"  init-method="initDataBase">
+        <constructor-arg ref="dao" />
+        <constructor-arg ref="operadorService" />
+        <constructor-arg  value="true" /> 
+    </bean>
+    -->
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"></bean>
+    
+    <tx:annotation-driven transaction-manager="transactionManager"   proxy-target-class="true"/>
+
+    <!--INIT REST COMPONENTS -->
+	
+    <context:component-scan base-package="com.topdata" />
+   	
+    <bean id="objectMapper" class="org.codehaus.jackson.map.ObjectMapper"></bean>
+    
+<!--    <bean id="objectMapper" class="org.springframework.http.converter.json.Jackson2ObjectMapperFactoryBean">
+      <property name="indentOutput" value="true"/>
+        <property name="failOnUnknownProperties" value="false"/>
+        <property name="objectMapper" ref="objectMapper"/>
+                <property name="FAIL_ON_UNKNOWN_PROPERTIES" value="false"></property>
+                
+    </bean>-->
+    <!-- configura o objectMapper para ignorar proproedades desconhecidas -->
+    <!--    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="objectMapper" />
+        <property name="targetMethod" value="configure" />
+        <property name="arguments">
+            <list>
+                <value type="org.codehaus.jackson.map.DeserializationConfig.Feature">FAIL_ON_UNKNOWN_PROPERTIES</value>
+                <value>false</value>
+            </list>
+        </property>
+    </bean>-->
+   
+    <!--    <bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+        <property name="messageConverters">
+            <list>
+                <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+                    <property name="objectMapper" ref="objectMapper" />
+                </bean>
+            </list>
+        </property>
+    </bean>-->
+	
+    <!--SPRING SECURITY SETUP -->
+	
+    <bean id="passwordEncoder" class="org.springframework.security.crypto.password.StandardPasswordEncoder">
+        <constructor-arg value="ThisIsASecretSoChangeMe" />
+    </bean>
+	
+    <security:authentication-manager id="authenticationManager">
+        <security:authentication-provider user-service-ref="autenticacaoDao">
+            <security:password-encoder ref="passwordEncoder"></security:password-encoder>
+        </security:authentication-provider>
+    </security:authentication-manager>
+    
+    <security:global-method-security pre-post-annotations="enabled">
+    </security:global-method-security>    
+    <security:http
+        realm="Protected API"
+        use-expressions="true"
+        auto-config="false"
+        create-session="stateless"
+        entry-point-ref="unauthorizedEntryPoint"
+        authentication-manager-ref="authenticationManager">
+        <security:custom-filter ref="authenticationTokenProcessingFilter"  position="FORM_LOGIN_FILTER" />
+        
+        
+        
+        <security:intercept-url pattern="/rest/user/auth" access="permitAll" />
+        <security:intercept-url pattern="/rest/confirmacao/**" access="permitAll" />
+        <security:intercept-url pattern="/rest/user/auth" method="OPTIONS" access="permitAll" />
+        <security:intercept-url pattern="/login.html" access="permitAll" />
+        <security:intercept-url pattern="/AlterarSenha.html" access="permitAll" />
+        <security:intercept-url pattern="/CadastroSenha.html" access="permitAll" />
+        <security:intercept-url pattern="/Ajuda.html" access="permitAll" />
+        <security:intercept-url pattern="/tpl/**" access="permitAll" />
+        <security:intercept-url pattern="/js/**" access="permitAll" />
+        <security:intercept-url pattern="/assets/**" access="permitAll"/>
+        <security:intercept-url pattern="/bower_components/**" access="permitAll"/>
+        <security:intercept-url pattern="/index.html" access="permitAll" />
+        <security:intercept-url pattern="/views/**" access="hasRole('ROLE_user')"/>
+        <security:intercept-url pattern="/app/**" access="permitAll"/>
+        <security:intercept-url pattern="/rest/sistema" access="permitAll"/>
+        <!--<security:intercept-url pattern="/**" access="permitAll" />-->
+        
+        <security:intercept-url method="GET" pattern="/rest/**" access="hasRole('ROLE_user')" />
+        <security:intercept-url method="PUT"  pattern="/rest/**" access="hasRole('ROLE_admin')" />
+        <security:intercept-url method="POST" pattern="/rest/**" access="hasRole('ROLE_admin')" />
+        <security:intercept-url method="DELETE" pattern="/rest/**" access="hasRole('ROLE_admin')" />
+       
+        
+       
+        
+        <!--        <security:intercept-url pattern="/partials/**" access="hasRole('admin')" />
+        <security:intercept-url pattern="/partials/**" access="hasRole('user')" />-->
+        <security:csrf disabled="true"/>
+        <!--        <security:headers disabled="true">
+                        <security:xss-protection block="false"></security:xss-protection>
+            <security:frame-options disabled="true"></security:frame-options>
+            <security:hsts disabled="true" ></security:hsts>
+        </security:headers>-->
+        
+        <!--<security:intercept-url pattern="/rest/**" access="permitAll"/>-->
+        
+    </security:http>
+   
+    <bean id="unauthorizedEntryPoint" class="com.topdata.toppontoweb.rest.autenticacao.UnauthorizedEntryPoint"></bean>
+
+    <bean class="com.topdata.toppontoweb.rest.autenticacao.AuthenticationTokenProcessingFilter" id="authenticationTokenProcessingFilter">
+    </bean>
+    
+    <!-- Configurações de Internacionalização -->
+    <bean id="messageSource"
+          class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basename" value="classpath:mensagens/messages" />
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+
+    <bean id="localeChangeInterceptor"
+          class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+        <property name="paramName" value="lang" />
+    </bean>
+
+    <bean id="localeResolver"
+          class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+        <property name="defaultLocale" value="en"/>
+    </bean>
+
+    <bean id="handlerMapping"
+          class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+        <property name="interceptors">
+            <ref bean="localeChangeInterceptor" />
+        </property>
+    </bean>
+        
+    <!--<context:property-placeholder location="classpath:config.properties"></context:property-placeholder>-->
+    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer" lazy-init="false">
+        <property name="locations">
+            <list>
+                <value>classpath:config.properties</value>
+            </list>
+        </property>
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+    </bean>
+    
+</beans>

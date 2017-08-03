@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-05-19T10:00:52 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorioAbsenteismoSub" pageWidth="555" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" whenResourceMissingType="Empty" uuid="7a683af8-30c5-4038-9920-ed717d8bb428">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<style name="estidoTextoLabel" mode="Opaque" markup="html" fontName="Arial" fontSize="9" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+	<style name="estiloTextoTituloPagina" mode="Opaque" markup="html" fontName="Arial" fontSize="10" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+	<style name="estidoTextoValor" mode="Opaque" markup="html" pattern="" fontName="Arial" fontSize="9"/>
+	<subDataset name="datasetSaidaPadrao" uuid="0083edb1-5d9b-441f-bd74-40d14213cca4">
+		<queryString>
+			<![CDATA[_THIS]]>
+		</queryString>
+		<field name="saidaDiaList" class="java.util.Collection"/>
+		<field name="funcionario" class="com.topdata.toppontoweb.entity.funcionario.Funcionario"/>
+		<field name="intervaloTotal" class="com.topdata.toppontoweb.services.gerafrequencia.entity.regras.Intervalos"/>
+		<field name="bancodeHorasTotal" class="com.topdata.toppontoweb.services.gerafrequencia.entity.bancodehoras.BancodeHorasApi"/>
+		<field name="ultimoDiaComBancoHoras" class="com.topdata.toppontoweb.services.gerafrequencia.entity.calculo.SaidaDia"/>
+		<variable name="BH_SALDO_ATUAL" class="java.time.Duration" resetType="Column">
+			<variableExpression><![CDATA[( $F{ultimoDiaComBancoHoras}.getBancodeHoras() != null? $F{ultimoDiaComBancoHoras}.getBancodeHoras().getSaldoAcumuladoDia() : java.time.Duration.ZERO).minus($F{ultimoDiaComBancoHoras}.getSaldoAnteriorDiaPeriodoBancodeHoras())]]></variableExpression>
+			<initialValueExpression><![CDATA[java.time.Duration.ZERO]]></initialValueExpression>
+		</variable>
+		<variable name="BH_SALDO_TOTAL" class="java.time.Duration" resetType="Column">
+			<variableExpression><![CDATA[$F{ultimoDiaComBancoHoras}.getBancodeHoras() != null? $F{ultimoDiaComBancoHoras}.getBancodeHoras().getSaldoAcumuladoDia() : java.time.Duration.ZERO]]></variableExpression>
+			<initialValueExpression><![CDATA[java.time.Duration.ZERO]]></initialValueExpression>
+		</variable>
+		<variable name="BH_SALDO_ANTERIOR" class="java.time.Duration" resetType="Column">
+			<variableExpression><![CDATA[$F{ultimoDiaComBancoHoras}.getSaldoAnteriorDiaPeriodoBancodeHoras()]]></variableExpression>
+			<initialValueExpression><![CDATA[java.time.Duration.ZERO]]></initialValueExpression>
+		</variable>
+		<variable name="BH_SALDO_ATUAL_TOTAL" class="java.time.Duration">
+			<variableExpression><![CDATA[$V{BH_SALDO_ATUAL_TOTAL}.plus($V{BH_SALDO_ATUAL} != null? $V{BH_SALDO_ATUAL} : java.time.Duration.ZERO)]]></variableExpression>
+			<initialValueExpression><![CDATA[java.time.Duration.ZERO]]></initialValueExpression>
+		</variable>
+		<variable name="BH_SALDO_TOTAL_TOTAL" class="java.time.Duration">
+			<variableExpression><![CDATA[$V{BH_SALDO_TOTAL_TOTAL}.plus($V{BH_SALDO_TOTAL} != null? $V{BH_SALDO_TOTAL} : java.time.Duration.ZERO)]]></variableExpression>
+			<initialValueExpression><![CDATA[java.time.Duration.ZERO]]></initialValueExpression>
+		</variable>
+		<variable name="BH_SALDO_ANTERIOR_TOTAL" class="java.time.Duration">
+			<variableExpression><![CDATA[$V{BH_SALDO_ANTERIOR_TOTAL}.plus($V{BH_SALDO_ANTERIOR} != null? $V{BH_SALDO_ANTERIOR} : java.time.Duration.ZERO)]]></variableExpression>
+			<initialValueExpression><![CDATA[java.time.Duration.ZERO]]></initialValueExpression>
+		</variable>
+	</subDataset>
+	<subDataset name="dataSetSaidaDia" uuid="a0a24a67-2c42-4762-9cae-63db2f79cf29">
+		<queryString>
+			<![CDATA[_THIS]]>
+		</queryString>
+		<field name="regras" class="com.topdata.toppontoweb.services.gerafrequencia.entity.regras.Regra"/>
+		<field name="horariosTrabalhadosPresencaList" class="java.util.Collection"/>
+	</subDataset>
+	<subDataset name="datasetHorariosTrabalhadosPresenca" uuid="faba9977-fc01-4597-8b27-66da2934c7e9">
+		<queryString>
+			<![CDATA[_THIS]]>
+		</queryString>
+		<field name="horarioEntrada" class="java.util.Date"/>
+		<field name="horarioSaida" class="java.util.Date"/>
+		<field name="statusEntrada" class="java.lang.String"/>
+		<field name="statusSaida" class="java.lang.String"/>
+	</subDataset>
+	<field name="departamento" class="com.topdata.toppontoweb.entity.empresa.Departamento"/>
+	<field name="saidaPadraoList" class="java.util.Collection"/>
+	<field name="intervaloTotal" class="com.topdata.toppontoweb.services.gerafrequencia.entity.regras.Intervalos"/>
+	<field name="bancodeHorasTotal" class="com.topdata.toppontoweb.services.gerafrequencia.entity.bancodehoras.BancodeHorasApi"/>
+	<field name="ultimoDiaComBancoHorasTotal" class="com.topdata.toppontoweb.services.gerafrequencia.entity.calculo.SaidaDia"/>
+	<variable name="BH_SALDO_ATUAL" class="java.time.Duration">
+		<variableExpression><![CDATA[( $F{ultimoDiaComBancoHorasTotal}.getBancodeHoras() != null? $F{ultimoDiaComBancoHorasTotal}.getBancodeHoras().getSaldoAcumuladoDia() : java.time.Duration.ZERO).minus($F{ultimoDiaComBancoHorasTotal}.getSaldoAnteriorDiaPeriodoBancodeHoras())]]></variableExpression>
+	</variable>
+	<variable name="BH_SALDO_TOTAL" class="java.time.Duration">
+		<variableExpression><![CDATA[$F{ultimoDiaComBancoHorasTotal}.getBancodeHoras() != null? $F{ultimoDiaComBancoHorasTotal}.getBancodeHoras().getSaldoAcumuladoDia() : java.time.Duration.ZERO]]></variableExpression>
+	</variable>
+	<variable name="BH_SALDO_ANTERIOR" class="java.time.Duration">
+		<variableExpression><![CDATA[$F{ultimoDiaComBancoHorasTotal}.getSaldoAnteriorDiaPeriodoBancodeHoras()]]></variableExpression>
+	</variable>
+	<detail>
+		<band height="50" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<staticText>
+				<reportElement key="" style="estidoTextoLabel" x="0" y="2" width="68" height="11" isPrintWhenDetailOverflows="true" uuid="0a65aacc-25b8-4501-bdd5-77ec0be0b571">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[Departamento:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="estidoTextoValor" x="68" y="2" width="486" height="11" isPrintWhenDetailOverflows="true" uuid="4ce68837-c883-4dba-bdf4-7f9805359f67">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{departamento}.getDescricao()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="5" y="24" width="204" height="11" isPrintWhenDetailOverflows="true" uuid="a54144c4-abcf-45f1-8e75-1e43942f6c42">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[Funcionário]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="5" y="35" width="543" height="11" uuid="18be3006-4ac0-4cb1-a588-fecaafbe2a21">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="datasetSaidaPadrao" uuid="6a313617-96f6-427e-a0da-1ec3f749a33a">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{saidaPadraoList})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="11" width="543">
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement style="estidoTextoValor" x="0" y="0" width="203" height="11" isPrintWhenDetailOverflows="true" uuid="7a3fc65d-b09e-47d6-98e1-fccbc572927f">
+								<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+								<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+							</reportElement>
+							<textFieldExpression><![CDATA[$F{funcionario}.getNome()]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement style="estidoTextoValor" x="203" y="0" width="80" height="11" uuid="08cd6b8d-c6cd-4292-b2e5-45d86639e48a">
+								<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+							</reportElement>
+							<textElement textAlignment="Center"/>
+							<textFieldExpression><![CDATA[com.topdata.toppontoweb.utils.Utils.MASK.HORA($V{BH_SALDO_ANTERIOR}, new Boolean(false), 3)]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement style="estidoTextoValor" x="283" y="0" width="80" height="11" uuid="bc78d783-308f-4612-a16a-daacd35ce037">
+								<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+								<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+							</reportElement>
+							<textElement textAlignment="Center"/>
+							<textFieldExpression><![CDATA[com.topdata.toppontoweb.utils.Utils.MASK.HORA($V{BH_SALDO_ATUAL}, new Boolean(false), 3)]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement style="estidoTextoValor" x="363" y="0" width="180" height="11" uuid="51a8f395-6ac0-4a2b-b4e2-c11bd223a195">
+								<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+								<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+							</reportElement>
+							<textElement textAlignment="Center"/>
+							<textFieldExpression><![CDATA[com.topdata.toppontoweb.utils.Utils.MASK.HORA($V{BH_SALDO_TOTAL}, new Boolean(false), 3)]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="2afabeb9-8843-4d15-b869-cbb6f1db74ec">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<printWhenExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue() > 1)]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="209" y="24" width="80" height="11" isPrintWhenDetailOverflows="true" uuid="2fe7809a-8a09-4f7c-8449-08dec64c91a5">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Saldo Anterior]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="289" y="24" width="80" height="11" isPrintWhenDetailOverflows="true" uuid="24e203ef-c918-4859-bcc1-87e61fb192f0">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Saldo Atual]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="369" y="24" width="180" height="11" isPrintWhenDetailOverflows="true" uuid="84452b3a-2b70-4322-abd0-f8fa95c14bfe">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Saldo Total]]></text>
+			</staticText>
+		</band>
+		<band height="22">
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="89" y="6" width="119" height="11" uuid="0ec9dd07-3f67-4126-9878-79bc724c5dac">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[Total do Departamento:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="b7fee08a-67aa-44ad-987b-1af5e1def7fc">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="0" y="20" width="555" height="1" uuid="4b369835-4e10-43e9-8e0a-7c1bb6aa270b">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+			</line>
+			<textField>
+				<reportElement style="estidoTextoValor" x="208" y="6" width="80" height="11" uuid="6a66dfbd-b9ef-48a6-8dd9-e5e72255de8c">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[com.topdata.toppontoweb.utils.Utils.MASK.HORA($V{BH_SALDO_ANTERIOR}, new Boolean(false), 3)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="estidoTextoValor" x="288" y="6" width="80" height="11" uuid="5de489ae-5b97-4e9c-906d-23612b7fb6d6">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[com.topdata.toppontoweb.utils.Utils.MASK.HORA($V{BH_SALDO_ATUAL}, new Boolean(false), 3)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="estidoTextoValor" x="368" y="6" width="180" height="11" uuid="3dbd0f11-9b91-4b76-8b05-fa7c23aa9a4a">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[com.topdata.toppontoweb.utils.Utils.MASK.HORA($V{BH_SALDO_TOTAL}, new Boolean(false), 3)]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    
+    <display-name>TopPontoWeb</display-name>
+    
+    <!-- Load Spring Context -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/context.xml</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>log4jConfigLocation</param-name>
+        <param-value>/WEB-INF/log4j.properties</param-value>
+    </context-param>
+    
+    <listener>
+        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+    </listener>
+    
+    <context-param>
+        <param-name>log4jExposeWebAppRoot</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    
+    
+<!--    <filter>
+        <filter-name>CorsFilter</filter-name>
+        <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
+        <init-param>
+            <param-name>cors.allowed.headers</param-name>
+            <param-value>Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization</param-value>
+        </init-param>     
+    </filter>-->
+    
+    <!-- Map the REST Servlet to /rest/ -->
+    
+    <servlet>
+        <servlet-name>RestService</servlet-name>
+        <servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
+        <init-param>
+            <param-name>com.sun.jersey.config.property.packages</param-name>
+            <param-value>com.topdata.toppontoweb.rest</param-value>
+        </init-param>
+        <init-param>
+            <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>com.sun.jersey.config.feature.DisableWADL</param-name>
+            <param-value>true</param-value>
+         </init-param>
+         <init-param>
+            <param-name>com.sun.jersey.spi.container.ContainerResponseFilters</param-name>
+            <param-value>com.topdata.toppontoweb.rest.autenticacao.CORSFilter</param-value>
+        </init-param>
+<!--        <init-param>
+            <param-name>jersey.config.server.provider.packages</param-name>
+            <param-value>com.topdata.toppontoweb</param-value>
+        </init-param>-->
+        
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>RestService</servlet-name>
+        <url-pattern>/rest/*</url-pattern>
+    </servlet-mapping>
+    
+    
+<!--    <filter>
+        <filter-name>AuthenticationTokenProcessingFilter</filter-name>
+        <filter-class>com.topdata.toppontoweb.rest.autenticacao.AuthenticationTokenProcessingFilter</filter-class>
+    </filter>
+    
+    <filter-mapping>
+        <filter-name>AuthenticationTokenProcessingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>-->
+    
+   
+    <!--    <filter>
+        <filter-name>corsFilter</filter-name>
+        <filter-class>com.topdata.toppontoweb.rest.autenticacao.CORSFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>corsFilter </filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>-->
+
+    <!-- Correção do Lazy Load -->
+    
+    <!-- Apply Spring Security Filter to all Requests -->
+    
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <filter>
+        <filter-name>Spring OpenEntityManagerInViewFilter</filter-name>
+        <filter-class>org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter</filter-class>
+        <init-param>
+            <param-name>singleSession</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    
+    <filter-mapping>
+        <filter-name>Spring OpenEntityManagerInViewFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+  
+    
+   
+    
+
+    <!-- Pagina inicial -->
+    
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+</web-app>

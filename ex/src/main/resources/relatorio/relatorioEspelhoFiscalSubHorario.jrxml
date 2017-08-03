@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-05-18T16:12:46 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorioEspelhoFiscalSubHorario" pageWidth="802" pageHeight="594" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" whenResourceMissingType="Empty" uuid="7a683af8-30c5-4038-9920-ed717d8bb428">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<style name="estidoTextoLabel" mode="Opaque" markup="html" fontName="Arial" fontSize="9" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+	<style name="estiloTextoTituloPagina" mode="Opaque" markup="html" fontName="Arial" fontSize="10" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+	<style name="estidoTextoValor" mode="Opaque" markup="html" pattern="" fontName="Arial" fontSize="9"/>
+	<style name="estioTextoDetalheValor" mode="Opaque" markup="html" pattern="" fontName="Arial" fontSize="8"/>
+	<subDataset name="datasetHorariosPrevistos" whenResourceMissingType="Empty" uuid="1d82928f-3c98-42ca-90c6-a8189aeccc37">
+		<parameter name="FILTRO_IS_CAMPOS_ZERADO" class="java.lang.Boolean"/>
+		<queryString>
+			<![CDATA[_THIS]]>
+		</queryString>
+		<field name="horarioEntrada" class="java.util.Date"/>
+		<field name="horarioSaida" class="java.util.Date"/>
+	</subDataset>
+	<subDataset name="datasetHorariosTrabalhados" uuid="376cf10c-599d-4995-b0e3-9ca2d08e8eef">
+		<parameter name="FILTRO_IS_CAMPOS_ZERADO" class="java.lang.Boolean"/>
+		<queryString>
+			<![CDATA[_THIS]]>
+		</queryString>
+		<field name="horarioEntrada" class="java.util.Date"/>
+		<field name="horarioSaida" class="java.util.Date"/>
+	</subDataset>
+	<field name="horariosPrevistosList" class="java.util.Collection"/>
+	<field name="idHorario" class="java.lang.Integer"/>
+	<columnHeader>
+		<band height="23">
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="0" y="12" width="114" height="11" uuid="ddc6b6a7-5396-4b1e-9ab2-bb5b2cd1570e">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[Código de Horário (CH)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="0" y="0" width="160" height="11" uuid="702e940f-464d-4a01-997f-e02f4ac09e65">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[Horários contratuais do empregado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="114" y="12" width="35" height="11" uuid="709e1768-63ae-48f7-8cd6-eb10dc8661a8">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Entrada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="149" y="12" width="35" height="11" uuid="a140ce77-ac18-4301-8baf-0629f92719c2">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Saída]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="190" y="12" width="35" height="11" uuid="83bc828d-ed02-4a81-b592-9f4e9fd4f828">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Entrada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="225" y="12" width="35" height="11" uuid="08a0bb43-7d32-4880-8d74-544245d6e5a0">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Saída]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="11" splitType="Prevent">
+			<componentElement>
+				<reportElement x="114" y="0" width="160" height="11" isPrintWhenDetailOverflows="true" uuid="9c0f5391-2435-4832-a11c-bd051ff513d2">
+					<property name="com.jaspersoft.studio.unit.CONTENTS.width" value="pixel"/>
+				</reportElement>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Horizontal">
+					<datasetRun subDataset="datasetHorariosPrevistos" uuid="3d51f971-8f5a-468d-98d5-758f0debb977">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(com.topdata.toppontoweb.utils.Utils.CONFIGURAR.HORARIO_MARCACAO($F{horariosPrevistosList}, 2 ) )]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="11" width="76">
+						<textField pattern="">
+							<reportElement style="estidoTextoValor" x="0" y="0" width="35" height="11" uuid="480e780b-467c-45e9-b0e3-1338fee96b39">
+								<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+								<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+							</reportElement>
+							<textElement textAlignment="Center"/>
+							<textFieldExpression><![CDATA[com.topdata.toppontoweb.utils.Utils.MASK.HORA_API($F{horarioEntrada}, new Boolean(false) )]]></textFieldExpression>
+						</textField>
+						<textField pattern="">
+							<reportElement style="estidoTextoValor" x="35" y="0" width="35" height="11" uuid="90610ddd-1d69-4788-97da-21df7b527a48">
+								<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+							</reportElement>
+							<textElement textAlignment="Center"/>
+							<textFieldExpression><![CDATA[com.topdata.toppontoweb.utils.Utils.MASK.HORA_API($F{horarioSaida}, new Boolean(false))]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<textField isBlankWhenNull="false">
+				<reportElement key="" style="estidoTextoValor" x="0" y="0" width="114" height="11" uuid="8d1c6f49-5beb-4a22-8396-9cf6ccd7e6b8">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[com.topdata.toppontoweb.utils.Utils.MASK.FORMATO_CH($F{idHorario})]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

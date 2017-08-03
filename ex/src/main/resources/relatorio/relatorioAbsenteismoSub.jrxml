@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-05-22T11:49:18 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorioAbsenteismoSub" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" whenResourceMissingType="Empty" uuid="7a683af8-30c5-4038-9920-ed717d8bb428">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="estidoTextoLabel" mode="Opaque" markup="html" fontName="Arial" fontSize="9" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+	<style name="estiloTextoTituloPagina" mode="Opaque" markup="html" fontName="Arial" fontSize="10" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+	<style name="estidoTextoValor" mode="Opaque" markup="html" pattern="" fontName="Arial" fontSize="9"/>
+	<subDataset name="datasetSaidaPadrao" uuid="0083edb1-5d9b-441f-bd74-40d14213cca4">
+		<queryString>
+			<![CDATA[_THIS]]>
+		</queryString>
+		<field name="saidaDiaList" class="java.util.Collection"/>
+		<field name="funcionario" class="com.topdata.toppontoweb.entity.funcionario.Funcionario"/>
+		<field name="intervaloTotal" class="com.topdata.toppontoweb.services.gerafrequencia.entity.regras.Intervalos"/>
+		<field name="saldoNormaisTotal" class="com.topdata.toppontoweb.services.gerafrequencia.entity.saldo.Saldo"/>
+	</subDataset>
+	<subDataset name="dataSetSaidaDia" uuid="a0a24a67-2c42-4762-9cae-63db2f79cf29">
+		<queryString>
+			<![CDATA[_THIS]]>
+		</queryString>
+		<field name="regras" class="com.topdata.toppontoweb.services.gerafrequencia.entity.regras.Regra"/>
+		<field name="horariosTrabalhadosPresencaList" class="java.util.Collection"/>
+	</subDataset>
+	<subDataset name="datasetHorariosTrabalhadosPresenca" uuid="faba9977-fc01-4597-8b27-66da2934c7e9">
+		<queryString>
+			<![CDATA[_THIS]]>
+		</queryString>
+		<field name="horarioEntrada" class="java.util.Date"/>
+		<field name="horarioSaida" class="java.util.Date"/>
+		<field name="statusEntrada" class="java.lang.String"/>
+		<field name="statusSaida" class="java.lang.String"/>
+	</subDataset>
+	<field name="departamento" class="com.topdata.toppontoweb.entity.empresa.Departamento"/>
+	<field name="saidaPadraoList" class="java.util.Collection"/>
+	<field name="intervaloTotal" class="com.topdata.toppontoweb.services.gerafrequencia.entity.regras.Intervalos"/>
+	<field name="saldoNormaisTotal" class="com.topdata.toppontoweb.services.gerafrequencia.entity.saldo.Saldo"/>
+	<detail>
+		<band height="50" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<staticText>
+				<reportElement key="" style="estidoTextoLabel" x="0" y="2" width="68" height="11" isPrintWhenDetailOverflows="true" uuid="0a65aacc-25b8-4501-bdd5-77ec0be0b571">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[Departamento:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement style="estidoTextoValor" x="68" y="2" width="486" height="11" isPrintWhenDetailOverflows="true" uuid="4ce68837-c883-4dba-bdf4-7f9805359f67">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{departamento}.getDescricao()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="5" y="24" width="204" height="11" isPrintWhenDetailOverflows="true" uuid="a54144c4-abcf-45f1-8e75-1e43942f6c42">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[Funcionário]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="209" y="24" width="81" height="11" isPrintWhenDetailOverflows="true" uuid="aca1dac8-3073-4ec6-b183-2f96eb96ee78">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Normais]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="290" y="24" width="81" height="11" isPrintWhenDetailOverflows="true" uuid="1ff04236-8065-47f7-973c-c1097535b1f2">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Ausências]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="371" y="24" width="182" height="11" isPrintWhenDetailOverflows="true" uuid="268f674b-3ebc-4efe-89a6-7068a514397c">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Absenteísmo (%)]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="5" y="35" width="548" height="11" uuid="18be3006-4ac0-4cb1-a588-fecaafbe2a21">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="datasetSaidaPadrao" uuid="6a313617-96f6-427e-a0da-1ec3f749a33a">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{saidaPadraoList})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="11" width="548">
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement style="estidoTextoValor" x="0" y="0" width="204" height="11" isPrintWhenDetailOverflows="true" uuid="7a3fc65d-b09e-47d6-98e1-fccbc572927f">
+								<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+								<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+							</reportElement>
+							<textFieldExpression><![CDATA[$F{funcionario}.getNome()]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement style="estidoTextoValor" x="204" y="0" width="80" height="11" uuid="ec2bc9e0-0b84-48c5-a3a6-322df4b6dd8a">
+								<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+							</reportElement>
+							<textElement textAlignment="Center"/>
+							<textFieldExpression><![CDATA[com.topdata.toppontoweb.utils.Utils.MASK.HORA($F{saldoNormaisTotal}.getDiurnas().plus($F{saldoNormaisTotal}.getNoturnas()), new Boolean(false), 3)]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement style="estidoTextoValor" x="284" y="0" width="82" height="11" uuid="b1037271-2c47-46fe-a811-4c61ef1476d5">
+								<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+							</reportElement>
+							<textElement textAlignment="Center"/>
+							<textFieldExpression><![CDATA[com.topdata.toppontoweb.utils.Utils.MASK.HORA($F{intervaloTotal}.getSaldoHorasNaoTrabalhadasAbsenteismo(), new Boolean(false),  3)]]></textFieldExpression>
+						</textField>
+						<textField pattern="#00.00000%">
+							<reportElement style="estidoTextoValor" x="366" y="0" width="182" height="11" uuid="fff5295f-b56f-442f-b891-58683c6efa4b">
+								<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+								<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+							</reportElement>
+							<textElement textAlignment="Center"/>
+							<textFieldExpression><![CDATA[($F{intervaloTotal}.getIndiceAbsenteismo()/100)]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<line>
+				<reportElement x="0" y="0" width="595" height="1" uuid="2afabeb9-8843-4d15-b869-cbb6f1db74ec">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<printWhenExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue() > 1)]]></printWhenExpression>
+				</reportElement>
+			</line>
+		</band>
+		<band height="23">
+			<staticText>
+				<reportElement style="estidoTextoLabel" x="89" y="6" width="119" height="11" uuid="0ec9dd07-3f67-4126-9878-79bc724c5dac">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[Total do Departamento:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="estidoTextoValor" x="208" y="6" width="80" height="11" uuid="d7a8ba26-30fd-4cec-9eb9-2de82463d1f9">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[com.topdata.toppontoweb.utils.Utils.MASK.HORA($F{saldoNormaisTotal}.getDiurnas().plus($F{saldoNormaisTotal}.getNoturnas()), new Boolean(false), 3)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="estidoTextoValor" x="288" y="6" width="82" height="11" uuid="0a1cf859-fa89-4ba6-ae6e-721659ebfcce">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[com.topdata.toppontoweb.utils.Utils.MASK.HORA($F{intervaloTotal}.getSaldoHorasNaoTrabalhadasAbsenteismo(), new Boolean(false),  3)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#00.00000%">
+				<reportElement style="estidoTextoValor" x="370" y="6" width="182" height="11" uuid="28a375d2-befa-4873-8c25-414221b81a85">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[($F{intervaloTotal}.getIndiceAbsenteismo()/100)]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
