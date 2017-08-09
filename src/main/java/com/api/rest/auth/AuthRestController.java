@@ -19,30 +19,28 @@ import com.api.rest.ApiRestController;
 import com.api.service.ServiceException;
 import com.api.service.auth.AuthService;
 
-
 @RestController
 public class AuthRestController extends ApiRestController {
 
-	@Autowired
-	private AuthService authService;
+    @Autowired
+    private AuthService authService;
+    
+    /**
+     * Método para autenticação do usuário.
+     *
+     * @param usuarioLoginDTO
+     * @return {@link TokenDTO}
+     * @throws ServiceException
+     *
+     */
+    @RequestMapping(value = CONSTANTES.URL_AUTH, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE, method = RequestMethod.POST)
+    public ResponseEntity<TokenDTO> autenticar(@RequestBody UsuarioLoginDTO usuarioLoginDTO) throws ServiceException {
+        return new ResponseEntity<>(this.authService.autenticar(usuarioLoginDTO), HttpStatus.CREATED);
+    }
 
-	/**
-	 * Método para autenticação do usuário. 
-	 * 
-	 * @param repDTO
-	 * @return {@link TokenDTO}
-	 * @throws ServiceException
-	 *
-	 */
-	@RequestMapping(value = CONSTANTES.URL_AUTH, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE, method = RequestMethod.POST)
-	public ResponseEntity<TokenDTO> autenticar(@RequestBody UsuarioLoginDTO usuarioLoginDTO) throws ServiceException {
-		return new ResponseEntity<TokenDTO>(this.authService.autenticar(usuarioLoginDTO), HttpStatus.CREATED);
-	}
-	
-	@RequestMapping(value = CONSTANTES.URL_USER, produces = MediaType.APPLICATION_JSON_UTF8_VALUE, method = RequestMethod.GET)
-	public ResponseEntity<UsuarioDTO> autenticar(HttpServletRequest request) throws ServiceException {
-		return new ResponseEntity<UsuarioDTO>(this.authService.userAutenticado(request), HttpStatus.CREATED);
-	}
-
+    @RequestMapping(value = CONSTANTES.URL_USER, produces = MediaType.APPLICATION_JSON_UTF8_VALUE, method = RequestMethod.GET)
+    public ResponseEntity<UsuarioDTO> autenticar(HttpServletRequest request) throws ServiceException {
+        return new ResponseEntity<>(this.authService.userAutenticado(request), HttpStatus.CREATED);
+    }
 
 }

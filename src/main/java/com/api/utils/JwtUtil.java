@@ -23,42 +23,64 @@ import io.jsonwebtoken.SignatureAlgorithm;
 @Component
 public class JwtUtil {
 
-	@Autowired
-	private UsuarioService usuarioService;
-	
-	public UsuarioDTO parseToken(String token) throws ServiceException {
-		try {
-			if (token == null || token.equals("") || token.length() < 10) {
-				// throw new ServiceException(HttpStatus.UNAUTHORIZED);
-				return null;
-			}
-			Claims body = Jwts.parser().setSigningKey(CONSTANTES.AUTH_KEY).parseClaimsJws(token).getBody();
-			
-			Usuario usuario = new Usuario();
-			usuario.setEmail(body.getSubject());
-			
-			usuario = usuarioService.buscarPorEmail(usuario.getEmail());
-			
-			UsuarioDTO dto = new UsuarioDTO();
-			dto.setEmail(usuario.getEmail());
-			
-			return dto;
-			
+    @Autowired
+    private UsuarioService usuarioService;
 
-		} catch (JwtException | ClassCastException e) {
-			throw  new ServiceException(HttpStatus.UNAUTHORIZED);
-		}
-	}
+    public UsuarioDTO parseToken(String token) throws ServiceException {
+        try {
+            if (token == null || token.equals("") || token.length() < 10) {
+                // throw new ServiceException(HttpStatus.UNAUTHORIZED);
+                return null;
+            }
+            Claims body = Jwts.parser().setSigningKey(CONSTANTES.AUTH_KEY).parseClaimsJws(token).getBody();
 
-	public String generateToken(String email) {
-		// TOKEN com 10 minuto de validade
-		return Jwts.builder().setSubject(email).signWith(SignatureAlgorithm.HS256, CONSTANTES.AUTH_KEY)
-				.setExpiration(new Date(System.currentTimeMillis() + 60 * 1000 * 24)).compact();
-	}
+            Usuario usuario = new Usuario();
+            usuario.setEmail(body.getSubject());
 
-	public UsuarioDTO extractToken(HttpServletRequest request) throws ServiceException {
-		return this.parseToken(request.getHeader("Authorization"));
+            usuario = usuarioService.buscarPorEmail(usuario.getEmail());
 
-	}
+            UsuarioDTO dto = new UsuarioDTO();
+            dto.setEmail(usuario.getEmail());
+
+            return dto;
+
+        } catch (JwtException | ClassCastException e) {
+            throw new ServiceException(HttpStatus.UNAUTHORIZED);
+        }
+    }
+
+    public Usuario parseTokenUsuario(String token) throws ServiceException {
+        try {
+            if (token == null || token.equals("") || token.length() < 10) {
+                // throw new ServiceException(HttpStatus.UNAUTHORIZED);
+                return null;
+            }
+            Claims body = Jwts.parser().setSigningKey(CONSTANTES.AUTH_KEY).parseClaimsJws(token).getBody();
+
+            Usuario usuario = new Usuario();
+            usuario.setEmail(body.getSubject());
+
+            usuario = usuarioService.buscarPorEmail(usuario.getEmail());
+
+            return usuario;
+
+        } catch (JwtException | ClassCastException e) {
+            throw new ServiceException(HttpStatus.UNAUTHORIZED);
+        }
+    }
+
+    public String generateToken(String email) {
+        // TOKEN com 10 minuto de validade
+        return Jwts.builder().setSubject(email).signWith(SignatureAlgorithm.HS256, CONSTANTES.AUTH_KEY)
+                .setExpiration(new Date(System.currentTimeMillis() + 60 * 1000 * 24)).compact();
+    }
+
+    public UsuarioDTO extractToken(HttpServletRequest request) throws ServiceException {
+        return this.parseToken(request.getHeader("Authorization"));
+    }
+
+    public Usuario extractTokenUsuario(HttpServletRequest request) throws ServiceException {
+        return this.parseTokenUsuario(request.getHeader("Authorization"));
+    }
 
 }

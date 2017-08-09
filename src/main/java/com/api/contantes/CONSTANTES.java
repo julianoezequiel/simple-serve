@@ -37,6 +37,8 @@ public class CONSTANTES {
 
 	public static final String URL_AUTH = "/auth";
 	public static final String URL_USER = "/restrict/usuario";
+        
+        
 
 	/**
 	 * Tipos de Operações utilizadas pelo REP
