@@ -3663,3 +3663,571 @@ Caused by: org.hibernate.HibernateException: Access to DialectResolutionInfo can
 [2m2017-08-09 21:35:53.069[0;39m [32m INFO[0;39m Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@535b7: startup date [Wed Aug 09 21:33:38 BRT 2017]; root of context hierarchy
 [2m2017-08-09 21:35:53.069[0;39m [32m INFO[0;39m Unregistering JMX-exposed beans on shutdown
 [2m2017-08-09 21:35:53.069[0;39m [32m INFO[0;39m Closing JPA EntityManagerFactory for persistence unit 'default'
+[2m2017-08-09 21:36:01.599[0;39m [32m INFO[0;39m Starting SimpleApiApplication on Juliano-PC with PID 5112 (D:\projeto-PDV01\simple-serve\target\classes started by Juliano in D:\projeto-PDV01\simple-serve)
+[2m2017-08-09 21:36:01.599[0;39m [32m INFO[0;39m No active profile set, falling back to default profiles: default
+[2m2017-08-09 21:36:02.056[0;39m [32m INFO[0;39m Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@318117: startup date [Wed Aug 09 21:36:02 BRT 2017]; root of context hierarchy
+[2m2017-08-09 21:36:04.737[0;39m [32m INFO[0;39m Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$2e776829] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2m2017-08-09 21:36:05.698[0;39m [32m INFO[0;39m Tomcat initialized with port(s): 80 (http)
+[2m2017-08-09 21:36:05.713[0;39m [32m INFO[0;39m Starting service Tomcat
+[2m2017-08-09 21:36:05.713[0;39m [32m INFO[0;39m Starting Servlet Engine: Apache Tomcat/8.5.6
+[2m2017-08-09 21:36:05.932[0;39m [32m INFO[0;39m Initializing Spring embedded WebApplicationContext
+[2m2017-08-09 21:36:05.932[0;39m [32m INFO[0;39m Root WebApplicationContext: initialization completed in 3876 ms
+[2m2017-08-09 21:36:06.466[0;39m [32m INFO[0;39m Building JPA container EntityManagerFactory for persistence unit 'default'
+[2m2017-08-09 21:36:06.984[0;39m [33m WARN[0;39m Not loading a JDBC driver as driverClassName property is null.
+[2m2017-08-09 21:36:07.422[0;39m [33m WARN[0;39m Not loading a JDBC driver as driverClassName property is null.
+[2m2017-08-09 21:36:07.437[0;39m [33m WARN[0;39m Not loading a JDBC driver as driverClassName property is null.
+[2m2017-08-09 21:36:07.457[0;39m [33m WARN[0;39m Not loading a JDBC driver as driverClassName property is null.
+[2m2017-08-09 21:36:07.457[0;39m [33m WARN[0;39m Not loading a JDBC driver as driverClassName property is null.
+[2m2017-08-09 21:36:07.472[0;39m [33m WARN[0;39m Not loading a JDBC driver as driverClassName property is null.
+[2m2017-08-09 21:36:07.504[0;39m [33m WARN[0;39m Not loading a JDBC driver as driverClassName property is null.
+[2m2017-08-09 21:36:07.566[0;39m [33m WARN[0;39m Not loading a JDBC driver as driverClassName property is null.
+[2m2017-08-09 21:36:07.597[0;39m [33m WARN[0;39m Not loading a JDBC driver as driverClassName property is null.
+[2m2017-08-09 21:36:07.628[0;39m [33m WARN[0;39m Not loading a JDBC driver as driverClassName property is null.
+[2m2017-08-09 21:36:08.522[0;39m [32m INFO[0;39m Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2m2017-08-09 21:36:09.383[0;39m [32m INFO[0;39m Mapping filter: 'characterEncodingFilter' to: [/*]
+[2m2017-08-09 21:36:09.383[0;39m [32m INFO[0;39m Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+[2m2017-08-09 21:36:09.383[0;39m [32m INFO[0;39m Mapping filter: 'httpPutFormContentFilter' to: [/*]
+[2m2017-08-09 21:36:09.383[0;39m [32m INFO[0;39m Mapping filter: 'requestContextFilter' to: [/*]
+[2m2017-08-09 21:36:09.383[0;39m [32m INFO[0;39m Mapping filter: 'debugFilter' to urls: [/*]
+[2m2017-08-09 21:36:09.383[0;39m [32m INFO[0;39m Mapping filter: 'tokenFilter' to urls: [/restrict/*]
+[2m2017-08-09 21:36:09.383[0;39m [32m INFO[0;39m Mapping servlet: 'dispatcherServlet' to [/]
+[2m2017-08-09 21:36:10.076[0;39m [32m INFO[0;39m Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@318117: startup date [Wed Aug 09 21:36:02 BRT 2017]; root of context hierarchy
+[2m2017-08-09 21:36:10.233[0;39m [32m INFO[0;39m Mapped "{[/auth],methods=[POST],consumes=[application/json;charset=UTF-8],produces=[application/json;charset=UTF-8]}" onto public org.springframework.http.ResponseEntity<com.api.dto.TokenDTO> com.api.rest.auth.AuthRestController.autenticar(com.api.dto.UsuarioLoginDTO) throws com.api.service.ServiceException
+[2m2017-08-09 21:36:10.233[0;39m [32m INFO[0;39m Mapped "{[/restrict/usuario],methods=[GET],produces=[application/json;charset=UTF-8]}" onto public org.springframework.http.ResponseEntity<com.api.dto.UsuarioDTO> com.api.rest.auth.AuthRestController.autenticar(javax.servlet.http.HttpServletRequest) throws com.api.service.ServiceException
+[2m2017-08-09 21:36:10.233[0;39m [32m INFO[0;39m Mapped "{[/home]}" onto public java.lang.String com.api.rest.HomeController.irParaHome()
+[2m2017-08-09 21:36:10.233[0;39m [32m INFO[0;39m Mapped "{[/restrict/usuarios/paginacao],methods=[POST],consumes=[application/json;charset=UTF-8],produces=[application/json;charset=UTF-8]}" onto public org.springframework.http.ResponseEntity<com.api.dto.datatable.PaginacaoDataTableRetornoTransfer> com.api.rest.usuario.UsuarioRestController.listar(com.api.dto.datatable.PaginacaoDataTableTransfer,javax.servlet.http.HttpServletRequest) throws com.api.service.ServiceException
+[2m2017-08-09 21:36:10.233[0;39m [32m INFO[0;39m Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+[2m2017-08-09 21:36:10.233[0;39m [32m INFO[0;39m Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[2m2017-08-09 21:36:10.311[0;39m [32m INFO[0;39m Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[2m2017-08-09 21:36:10.311[0;39m [32m INFO[0;39m Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[2m2017-08-09 21:36:10.358[0;39m [32m INFO[0;39m Detected @ExceptionHandler methods in controllerException
+[2m2017-08-09 21:36:10.420[0;39m [32m INFO[0;39m Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[2m2017-08-09 21:36:10.535[0;39m [32m INFO[0;39m Adding welcome page: class path resource [static/index.html]
+[2m2017-08-09 21:36:11.647[0;39m [32m INFO[0;39m LiveReload server is running on port 35729
+[2m2017-08-09 21:36:11.930[0;39m [32m INFO[0;39m Registering beans for JMX exposure on startup
+[2m2017-08-09 21:36:12.025[0;39m [32m INFO[0;39m Tomcat started on port(s): 80 (http)
+[2m2017-08-09 21:36:12.025[0;39m [32m INFO[0;39m Started SimpleApiApplication in 11.134 seconds (JVM running for 13.01)
+[2m2017-08-09 21:36:33.352[0;39m [32m INFO[0;39m Initializing Spring FrameworkServlet 'dispatcherServlet'
+[2m2017-08-09 21:36:33.353[0;39m [32m INFO[0;39m FrameworkServlet 'dispatcherServlet': initialization started
+[2m2017-08-09 21:36:33.386[0;39m [32m INFO[0;39m FrameworkServlet 'dispatcherServlet': initialization completed in 33 ms
+[2m2017-08-09 21:36:33.403[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:36:33.403[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:36:33.404[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:36:33.404[0;39m [32m INFO[0;39m URL  : http://localhost/
+[2m2017-08-09 21:36:33.427[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:36:33.427[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:36:33.427[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:36:33.427[0;39m [32m INFO[0;39m URL  : http://localhost/index.html
+[2m2017-08-09 21:36:33.468[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:36:33.468[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:36:33.468[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:36:33.468[0;39m [32m INFO[0;39m URL  : http://localhost/styles/app.css
+[2m2017-08-09 21:36:33.474[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:36:33.475[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:36:33.475[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:36:33.475[0;39m [32m INFO[0;39m URL  : http://localhost/scripts/app-11de3bfd6c.js
+[2m2017-08-09 21:36:33.475[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:36:33.476[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:36:33.476[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:36:33.476[0;39m [32m INFO[0;39m URL  : http://localhost/styles/vendor.css
+[2m2017-08-09 21:36:33.477[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:36:33.477[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:36:33.477[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:36:33.477[0;39m [32m INFO[0;39m URL  : http://localhost/scripts/vendor-84ed946050.js
+[2m2017-08-09 21:36:35.166[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:36:35.166[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:36:35.167[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:36:35.167[0;39m [32m INFO[0;39m URL  : http://localhost/app/toolbar/i18n/en.json
+[2m2017-08-09 21:36:35.167[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:36:35.167[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:36:35.168[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:36:35.168[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/auth/login/i18n/en.json
+[2m2017-08-09 21:36:35.175[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:36:35.175[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:36:35.175[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:36:35.175[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/apps/file-manager/i18n/en.json
+[2m2017-08-09 21:36:35.177[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:36:35.177[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:36:35.178[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:36:35.178[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/apps/scrumboard/i18n/en.json
+[2m2017-08-09 21:36:35.178[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:36:35.179[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:36:35.180[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:36:35.180[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/apps/mail/i18n/en.json
+[2m2017-08-09 21:36:35.187[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:36:35.187[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:36:35.187[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:36:35.187[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/apps/gantt-chart/i18n/en.json
+[2m2017-08-09 21:36:35.190[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:36:35.190[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:36:35.190[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:36:35.190[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/apps/todo/i18n/en.json
+[2m2017-08-09 21:36:35.195[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:36:35.195[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:36:35.195[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:36:35.195[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/auth/login-v2/i18n/en.json
+[2m2017-08-09 21:36:35.201[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:36:35.202[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:36:35.202[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:36:35.203[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/auth/register/i18n/en.json
+[2m2017-08-09 21:36:35.204[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:36:35.204[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:36:35.204[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:36:35.204[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/auth/forgot-password/i18n/en.json
+[2m2017-08-09 21:36:35.211[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:36:35.211[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:36:35.212[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:36:35.212[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/auth/lock/i18n/en.json
+[2m2017-08-09 21:36:35.213[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:36:35.213[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:36:35.213[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:36:35.213[0;39m [32m INFO[0;39m URL  : http://localhost/app/quick-panel/i18n/en.json
+[2m2017-08-09 21:36:35.219[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:36:35.219[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:36:35.219[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:36:35.219[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/auth/reset-password/i18n/en.json
+[2m2017-08-09 21:36:35.221[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:36:35.221[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:36:35.221[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:36:35.161[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:36:35.238[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:36:35.238[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:36:35.239[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/auth/register-v2/i18n/en.json
+[2m2017-08-09 21:36:35.171[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:36:35.250[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:36:35.250[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:36:35.250[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/apps/calendar/i18n/en.json
+[2m2017-08-09 21:36:35.263[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:36:35.263[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:36:35.264[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:36:35.264[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/profile/i18n/en.json
+[2m2017-08-09 21:36:35.272[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:36:35.272[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:36:35.272[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:36:35.273[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/search/i18n/en.json
+[2m2017-08-09 21:36:35.281[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:36:35.281[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:36:35.281[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:36:35.281[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/errors/404/i18n/en.json
+[2m2017-08-09 21:36:35.289[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:36:35.289[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:36:35.289[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:36:35.289[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/errors/500/i18n/en.json
+[2m2017-08-09 21:36:35.221[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/coming-soon/i18n/en.json
+[2m2017-08-09 21:36:35.298[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:36:35.298[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:36:35.298[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:36:35.298[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/invoice/i18n/en.json
+[2m2017-08-09 21:36:35.301[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:36:35.302[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:36:35.302[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:36:35.302[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/maintenance/i18n/en.json
+[2m2017-08-09 21:36:35.575[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:36:35.575[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:36:35.575[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:36:35.575[0;39m [32m INFO[0;39m URL  : http://localhost/assets/icons/fonts/icomoon.ttf
+[2m2017-08-09 21:36:35.589[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:36:35.589[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:36:35.589[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:36:35.590[0;39m [32m INFO[0;39m URL  : http://localhost/assets/images/backgrounds/bg02.jpg
+[2m2017-08-09 21:36:35.623[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:36:35.623[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:36:35.623[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:36:35.623[0;39m [32m INFO[0;39m URL  : http://localhost/assets/images/simple.jpg
+[2m2017-08-09 21:36:43.244[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:36:43.244[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:36:43.244[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:36:43.244[0;39m [32m INFO[0;39m URL  : http://localhost/cadastros/usuarios
+[2m2017-08-09 21:37:05.046[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:05.046[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:05.046[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:05.046[0;39m [32m INFO[0;39m URL  : http://localhost/
+[2m2017-08-09 21:37:05.046[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:05.046[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:05.046[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:05.046[0;39m [32m INFO[0;39m URL  : http://localhost/index.html
+[2m2017-08-09 21:37:05.082[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:05.083[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:05.083[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:05.083[0;39m [32m INFO[0;39m URL  : http://localhost/styles/vendor.css
+[2m2017-08-09 21:37:05.095[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:05.095[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:05.095[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:05.095[0;39m [32m INFO[0;39m URL  : http://localhost/scripts/vendor-84ed946050.js
+[2m2017-08-09 21:37:05.096[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:05.096[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:05.097[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:05.097[0;39m [32m INFO[0;39m URL  : http://localhost/scripts/app-11de3bfd6c.js
+[2m2017-08-09 21:37:05.103[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:05.104[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:05.104[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:05.104[0;39m [32m INFO[0;39m URL  : http://localhost/styles/app.css
+[2m2017-08-09 21:37:07.751[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:07.751[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:07.752[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:07.752[0;39m [32m INFO[0;39m URL  : http://localhost/maps/scripts/vendor-84ed946050.js.map
+[2m2017-08-09 21:37:07.765[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:07.765[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:07.765[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:07.765[0;39m [32m INFO[0;39m URL  : http://localhost/maps/scripts/app-11de3bfd6c.js.map
+[2m2017-08-09 21:37:07.916[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:07.916[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:07.916[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:07.916[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/auth/register-v2/i18n/en.json
+[2m2017-08-09 21:37:07.925[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:07.925[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:07.925[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:07.925[0;39m [32m INFO[0;39m URL  : http://localhost/app/toolbar/i18n/en.json
+[2m2017-08-09 21:37:07.933[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:07.933[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:07.933[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:07.933[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/auth/login/i18n/en.json
+[2m2017-08-09 21:37:07.942[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:07.942[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:07.942[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:07.942[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/apps/calendar/i18n/en.json
+[2m2017-08-09 21:37:07.960[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:08.572[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:12.407[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:16.627[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:16.627[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:16.627[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:16.628[0;39m [32m INFO[0;39m URL  : http://localhost/assets/icons/fonts/icomoon.ttf
+[2m2017-08-09 21:37:07.966[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:16.629[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:16.627[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:16.627[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:16.629[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:16.630[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/apps/todo/i18n/en.json
+[2m2017-08-09 21:37:07.967[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:16.630[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:16.630[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:16.630[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/apps/scrumboard/i18n/en.json
+[2m2017-08-09 21:37:16.630[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/apps/gantt-chart/i18n/en.json
+[2m2017-08-09 21:37:07.980[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:16.634[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:16.635[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:16.635[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:16.635[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/apps/mail/i18n/en.json
+[2m2017-08-09 21:37:16.635[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/apps/file-manager/i18n/en.json
+[2m2017-08-09 21:37:16.652[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:16.652[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:16.652[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:16.652[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/auth/forgot-password/i18n/en.json
+[2m2017-08-09 21:37:16.664[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:16.665[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:16.665[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:16.665[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/auth/register/i18n/en.json
+[2m2017-08-09 21:37:16.670[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:16.671[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:16.671[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:16.671[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:16.671[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:16.671[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/coming-soon/i18n/en.json
+[2m2017-08-09 21:37:16.673[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:16.673[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:16.673[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:16.673[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/auth/login-v2/i18n/en.json
+[2m2017-08-09 21:37:16.671[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:16.679[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/auth/lock/i18n/en.json
+[2m2017-08-09 21:37:16.683[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:16.683[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:16.683[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:16.683[0;39m [32m INFO[0;39m URL  : http://localhost/app/quick-panel/i18n/en.json
+[2m2017-08-09 21:37:16.686[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:16.686[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:16.686[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:16.686[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/auth/reset-password/i18n/en.json
+[2m2017-08-09 21:37:16.698[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:16.698[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:16.698[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:16.698[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/invoice/i18n/en.json
+[2m2017-08-09 21:37:16.701[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:16.701[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:16.701[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:16.701[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/errors/500/i18n/en.json
+[2m2017-08-09 21:37:16.703[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:16.703[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:16.703[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:16.704[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/errors/404/i18n/en.json
+[2m2017-08-09 21:37:16.718[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:16.718[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:16.718[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:16.719[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/maintenance/i18n/en.json
+[2m2017-08-09 21:37:16.725[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:16.725[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:16.725[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:16.726[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/profile/i18n/en.json
+[2m2017-08-09 21:37:16.727[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:16.728[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:16.728[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:16.728[0;39m [32m INFO[0;39m URL  : http://localhost/assets/images/backgrounds/bg02.jpg
+[2m2017-08-09 21:37:16.731[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:16.731[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:16.731[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:16.731[0;39m [32m INFO[0;39m URL  : http://localhost/assets/images/simple.jpg
+[2m2017-08-09 21:37:16.732[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:16.732[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:16.732[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:16.732[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/search/i18n/en.json
+[2m2017-08-09 21:37:19.250[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:19.250[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:19.250[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:19.250[0;39m [32m INFO[0;39m URL  : http://localhost/assets/images/backgrounds/bg02.jpg
+[2m2017-08-09 21:37:32.787[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:32.787[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:32.787[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:32.787[0;39m [32m INFO[0;39m URL  : http://localhost/app/data/dashboard/project/data.json
+[2m2017-08-09 21:37:32.860[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:32.860[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:32.860[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:32.861[0;39m [32m INFO[0;39m URL  : http://localhost/assets/images/simple.jpg
+[2m2017-08-09 21:37:33.048[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:33.048[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:33.048[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:33.049[0;39m [32m INFO[0;39m URL  : http://localhost/assets/images/backgrounds/header-bg.png
+[2m2017-08-09 21:37:35.110[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:35.110[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:35.110[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:35.111[0;39m [32m INFO[0;39m URL  : http://localhost/assets/images/avatars/profile.jpg
+[2m2017-08-09 21:37:35.436[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:35.436[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:35.436[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:35.437[0;39m [32m INFO[0;39m URL  : http://localhost/app/data/quick-panel/activities.json
+[2m2017-08-09 21:37:35.446[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:35.446[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:35.446[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:35.447[0;39m [32m INFO[0;39m URL  : http://localhost/app/data/quick-panel/events.json
+[2m2017-08-09 21:37:35.490[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:35.490[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:35.490[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:35.491[0;39m [32m INFO[0;39m URL  : http://localhost/app/data/quick-panel/notes.json
+[2m2017-08-09 21:37:35.506[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:35.506[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:35.506[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:35.506[0;39m [32m INFO[0;39m URL  : http://localhost/app/data/quick-panel/contacts.json
+[2m2017-08-09 21:37:36.254[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:36.254[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:36.254[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:36.254[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:36.254[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:36.254[0;39m [32m INFO[0;39m URL  : http://localhost/assets/images/avatars/vincent.jpg
+[2m2017-08-09 21:37:36.254[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:36.255[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:36.255[0;39m [32m INFO[0;39m URL  : http://localhost/assets/images/avatars/joyce.jpg
+[2m2017-08-09 21:37:36.254[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:36.256[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:36.256[0;39m [32m INFO[0;39m URL  : http://localhost/assets/images/avatars/alice.jpg
+[2m2017-08-09 21:37:36.257[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:36.257[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:36.257[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:36.257[0;39m [32m INFO[0;39m URL  : http://localhost/assets/images/avatars/danielle.jpg
+[2m2017-08-09 21:37:36.258[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:36.258[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:36.258[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:36.258[0;39m [32m INFO[0;39m URL  : http://localhost/assets/images/avatars/garry.jpg
+[2m2017-08-09 21:37:36.263[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:37:36.263[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:37:36.263[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:37:36.263[0;39m [32m INFO[0;39m URL  : http://localhost/assets/images/avatars/james.jpg
+[2m2017-08-09 21:38:24.069[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:24.070[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:24.070[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:24.070[0;39m [32m INFO[0;39m URL  : http://localhost/painel-controle
+[2m2017-08-09 21:38:28.080[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:28.080[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:28.080[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:28.080[0;39m [32m INFO[0;39m URL  : http://localhost/
+[2m2017-08-09 21:38:28.096[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:28.096[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:28.096[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:28.096[0;39m [32m INFO[0;39m URL  : http://localhost/index.html
+[2m2017-08-09 21:38:28.140[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:28.141[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:28.141[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:28.141[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:28.141[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:28.141[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:28.141[0;39m [32m INFO[0;39m URL  : http://localhost/styles/vendor.css
+[2m2017-08-09 21:38:28.142[0;39m [32m INFO[0;39m URL  : http://localhost/styles/app.css
+[2m2017-08-09 21:38:28.163[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:28.163[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:28.163[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:28.164[0;39m [32m INFO[0;39m URL  : http://localhost/scripts/app-11de3bfd6c.js
+[2m2017-08-09 21:38:28.157[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:28.168[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:28.168[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:28.168[0;39m [32m INFO[0;39m URL  : http://localhost/scripts/vendor-84ed946050.js
+[2m2017-08-09 21:38:30.656[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:30.656[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:30.657[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:30.657[0;39m [32m INFO[0;39m URL  : http://localhost/maps/scripts/vendor-84ed946050.js.map
+[2m2017-08-09 21:38:30.669[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:30.669[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:30.669[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:30.669[0;39m [32m INFO[0;39m URL  : http://localhost/maps/scripts/app-11de3bfd6c.js.map
+[2m2017-08-09 21:38:30.928[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:30.930[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:30.930[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:30.930[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/auth/register-v2/i18n/en.json
+[2m2017-08-09 21:38:30.946[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:30.947[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:30.947[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:30.947[0;39m [32m INFO[0;39m URL  : http://localhost/app/toolbar/i18n/en.json
+[2m2017-08-09 21:38:30.959[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:30.958[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:30.959[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:30.959[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:30.959[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:30.959[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:30.959[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/auth/login/i18n/en.json
+[2m2017-08-09 21:38:30.959[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/apps/calendar/i18n/en.json
+[2m2017-08-09 21:38:31.007[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:31.007[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:31.007[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:31.007[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/apps/mail/i18n/en.json
+[2m2017-08-09 21:38:31.021[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:31.021[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:31.022[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:31.022[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:31.022[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:31.022[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:31.022[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/apps/scrumboard/i18n/en.json
+[2m2017-08-09 21:38:31.022[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/apps/file-manager/i18n/en.json
+[2m2017-08-09 21:38:31.038[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:31.038[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:31.038[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:31.038[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/apps/todo/i18n/en.json
+[2m2017-08-09 21:38:31.046[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:31.046[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:31.046[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:31.047[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/apps/gantt-chart/i18n/en.json
+[2m2017-08-09 21:38:31.049[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:31.049[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:31.050[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:31.050[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/auth/login-v2/i18n/en.json
+[2m2017-08-09 21:38:31.052[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:31.052[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:31.052[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:31.053[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/auth/register/i18n/en.json
+[2m2017-08-09 21:38:31.054[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:31.054[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:31.054[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:31.054[0;39m [32m INFO[0;39m URL  : http://localhost/app/quick-panel/i18n/en.json
+[2m2017-08-09 21:38:31.078[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:31.078[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:31.078[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:31.078[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/auth/reset-password/i18n/en.json
+[2m2017-08-09 21:38:31.086[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:31.086[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:31.086[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:31.087[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/auth/lock/i18n/en.json
+[2m2017-08-09 21:38:31.104[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:31.104[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:31.104[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:31.105[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/auth/forgot-password/i18n/en.json
+[2m2017-08-09 21:38:31.107[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:31.107[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:31.107[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:31.107[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/errors/404/i18n/en.json
+[2m2017-08-09 21:38:31.114[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:31.114[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:31.115[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:31.115[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/coming-soon/i18n/en.json
+[2m2017-08-09 21:38:31.118[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:31.118[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:31.118[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:31.118[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/invoice/i18n/en.json
+[2m2017-08-09 21:38:31.122[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:31.122[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:31.122[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:31.122[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/errors/500/i18n/en.json
+[2m2017-08-09 21:38:31.141[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:31.142[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:31.142[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:31.142[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/profile/i18n/en.json
+[2m2017-08-09 21:38:31.145[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:31.147[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:31.148[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:31.148[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/maintenance/i18n/en.json
+[2m2017-08-09 21:38:31.149[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:31.149[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:31.149[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:31.149[0;39m [32m INFO[0;39m URL  : http://localhost/app/main/pages/search/i18n/en.json
+[2m2017-08-09 21:38:31.470[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:31.470[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:31.470[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:31.470[0;39m [32m INFO[0;39m URL  : http://localhost/assets/images/simple.jpg
+[2m2017-08-09 21:38:31.767[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:31.767[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:31.767[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:31.767[0;39m [32m INFO[0;39m URL  : http://localhost/assets/icons/fonts/icomoon.ttf
+[2m2017-08-09 21:38:31.790[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:31.790[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:31.790[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:31.791[0;39m [32m INFO[0;39m URL  : http://localhost/assets/images/backgrounds/bg02.jpg
+[2m2017-08-09 21:38:35.216[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:35.216[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:35.216[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:35.217[0;39m [32m INFO[0;39m URL  : http://localhost/assets/images/backgrounds/bg02.jpg
+[2m2017-08-09 21:38:43.102[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:43.103[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:43.103[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:43.103[0;39m [32m INFO[0;39m URL  : http://localhost/app/data/dashboard/project/data.json
+[2m2017-08-09 21:38:43.124[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:43.125[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:43.125[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:43.125[0;39m [32m INFO[0;39m URL  : http://localhost/assets/images/simple.jpg
+[2m2017-08-09 21:38:43.200[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:43.201[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:43.201[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:43.201[0;39m [32m INFO[0;39m URL  : http://localhost/assets/images/backgrounds/header-bg.png
+[2m2017-08-09 21:38:45.004[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:45.004[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:45.004[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:45.004[0;39m [32m INFO[0;39m URL  : http://localhost/assets/images/avatars/profile.jpg
+[2m2017-08-09 21:38:45.157[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:45.157[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:45.157[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:45.157[0;39m [32m INFO[0;39m URL  : http://localhost/app/data/quick-panel/activities.json
+[2m2017-08-09 21:38:45.162[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:45.162[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:45.163[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:45.163[0;39m [32m INFO[0;39m URL  : http://localhost/app/data/quick-panel/events.json
+[2m2017-08-09 21:38:45.164[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:45.164[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:45.164[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:45.164[0;39m [32m INFO[0;39m URL  : http://localhost/app/data/quick-panel/notes.json
+[2m2017-08-09 21:38:45.173[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:45.173[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:45.173[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:45.173[0;39m [32m INFO[0;39m URL  : http://localhost/app/data/quick-panel/contacts.json
+[2m2017-08-09 21:38:45.639[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:45.639[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:45.639[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:45.639[0;39m [32m INFO[0;39m URL  : http://localhost/assets/images/avatars/alice.jpg
+[2m2017-08-09 21:38:45.646[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:45.646[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:45.646[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:45.646[0;39m [32m INFO[0;39m URL  : http://localhost/assets/images/avatars/joyce.jpg
+[2m2017-08-09 21:38:45.648[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:45.648[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:45.649[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:45.649[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:45.649[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:45.649[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:45.649[0;39m [32m INFO[0;39m URL  : http://localhost/assets/images/avatars/danielle.jpg
+[2m2017-08-09 21:38:45.649[0;39m [32m INFO[0;39m URL  : http://localhost/assets/images/avatars/garry.jpg
+[2m2017-08-09 21:38:45.652[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:45.652[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:45.652[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:45.653[0;39m [32m INFO[0;39m URL  : http://localhost/assets/images/avatars/vincent.jpg
+[2m2017-08-09 21:38:45.652[0;39m [32m INFO[0;39m ------------------------
+[2m2017-08-09 21:38:45.657[0;39m [32m INFO[0;39m Origem requisição IP : 0:0:0:0:0:0:0:1
+[2m2017-08-09 21:38:45.657[0;39m [32m INFO[0;39m Método  : GET
+[2m2017-08-09 21:38:45.657[0;39m [32m INFO[0;39m URL  : http://localhost/assets/images/avatars/james.jpg
+[2m2017-08-09 21:40:02.638[0;39m [32m INFO[0;39m Application shutdown requested.
+[2m2017-08-09 21:40:02.638[0;39m [32m INFO[0;39m Application shutdown requested.
+[2m2017-08-09 21:40:02.638[0;39m [32m INFO[0;39m Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@318117: startup date [Wed Aug 09 21:36:02 BRT 2017]; root of context hierarchy
+[2m2017-08-09 21:40:02.638[0;39m [32m INFO[0;39m Unregistering JMX-exposed beans on shutdown
+[2m2017-08-09 21:40:02.654[0;39m [32m INFO[0;39m Closing JPA EntityManagerFactory for persistence unit 'default'
