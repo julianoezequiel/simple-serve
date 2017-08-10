@@ -1,0 +1,10 @@
+{
+	"permissao": [{
+		 "tipo":"usuarios",
+		 "acesso":true
+		},{
+	     "tipo":"clientes",
+		 "acesso":false
+		}
+	]
+}
