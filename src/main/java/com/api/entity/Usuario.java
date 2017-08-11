@@ -1,6 +1,8 @@
 package com.api.entity;
 
 import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -8,7 +10,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -35,11 +42,39 @@ public class Usuario implements Serializable {
 	
 	@Column(name = "senha")
 	private String senha;
+	
+	@JoinColumn(name = "empresa_id", referencedColumnName = "id")
+	@ManyToOne
+	private Empresa empresaId;
+	
+	@ManyToMany(mappedBy = "usuarioList")
+	private List<Permissao> permissaoList;
 
-//	@OneToMany(mappedBy = "usuarioBioId")
-//	@JsonIgnore
-//	private Collection<Tarefa> tarefaCollection;
+	
+	@Column(name = "ativo")
+    private Boolean ativo;
+	
+	@Column(name = "tentativasLogin")
+    private Integer tentativasLogin = 0;
 
+    @Column(name = "senhaBloqueada")
+    private Boolean senhaBloqueada;
+
+    @Column(name = "trocaSenhaProximoAcesso")
+    private Boolean trocaSenhaProximoAcesso;
+    
+    @Size(max = 45)
+    @Column(name = "codigoConfirmacaoNovaSenha")
+    private String codigoConfirmacaoNovaSenha;
+    
+    @Column(name = "ultimoAcesso")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date ultimoAcesso;
+
+    @Column(name = "dataHoraBloqueioSenha")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dataHoraBloqueioSenha;
+    
 	public Usuario() {
 	}
 
@@ -55,15 +90,6 @@ public class Usuario implements Serializable {
 		this.id = id;
 	}
 
-	
-
-//	public Collection<Tarefa> getTarefaCollection() {
-//		return tarefaCollection;
-//	}
-//
-//	public void setTarefaCollection(Collection<Tarefa> tarefaCollection) {
-//		this.tarefaCollection = tarefaCollection;
-//	}
 
 	public String getEmail() {
 		return email;
