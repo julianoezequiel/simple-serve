@@ -16,7 +16,7 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(name = "tipoDocumento")
+@Table(name = "tipo_documento")
 @XmlRootElement
 public class TipoDocumento {
 

@@ -34,7 +34,7 @@ public class Empresa {
 	@Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 18)
-    @Column(name = "Documento")
+    @Column(name = "documento")
     private String documento;
 	
 	
@@ -45,27 +45,27 @@ public class Empresa {
 	@Basic(optional = false)
     @Size(max = 50)
     @NotNull
-    @Column(name = "RazaoSocial")
+    @Column(name = "razaoSocial")
     private String razaoSocial;
 
     @Size(min = 1, max = 50)
-    @Column(name = "NomeFantasia")
+    @Column(name = "nomeFantasia")
     private String nomeFantasia;
 
     @Size(min = 1, max = 50)
-    @Column(name = "Endereco")
+    @Column(name = "endereco")
     private String endereco;
 
     @Size(min = 1, max = 20)
-    @Column(name = "Bairro")
+    @Column(name = "bairro")
     private String bairro;
 
     @Size(min = 1, max = 10)
-    @Column(name = "Cep")
+    @Column(name = "cep")
     private String cep;
 
     @Size(min = 1, max = 30)
-    @Column(name = "Cidade")
+    @Column(name = "cidade")
     private String cidade;
 
     @Size(min = 1, max = 2)
@@ -73,18 +73,18 @@ public class Empresa {
     private String uf;
 
     @Size(min = 1, max = 20)
-    @Column(name = "Fone")
+    @Column(name = "fone")
     private String fone;
     // @Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$", message="Formato de telefone/fax inválido, deve ser xxx-xxx-xxxx")//if the field contains phone or fax number consider using this annotation to enforce field validation
 
     @Size(min = 1, max = 20)
-    @Column(name = "Fax")
+    @Column(name = "fax")
     private String fax;
 
     @Size(min = 1, max = 50)
-    @Column(name = "Observacao")
+    @Column(name = "observacao")
     private String observacao;
 
-    @Column(name = "Ativo")
+    @Column(name = "ativo")
     private Boolean ativo;
 }
