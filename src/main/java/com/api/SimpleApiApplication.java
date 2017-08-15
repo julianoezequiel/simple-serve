@@ -19,10 +19,11 @@ import com.api.filter.DebugFilter;
 import com.api.filter.TokenFilter;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.modelmapper.ModelMapper;
 
 /**
  * Classe Principal
- * 
+ *
  * @author juliano.ezequiel
  *
  */
@@ -30,62 +31,67 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @EnableScheduling
 public class SimpleApiApplication extends SpringBootServletInitializer {
 
-	@Autowired
-	private TokenFilter tokenFilter;
+    @Autowired
+    private TokenFilter tokenFilter;
 
-	// filtro para debug,
-	@Bean
-	public FilterRegistrationBean filtroDebug() {
-		FilterRegistrationBean bean = new FilterRegistrationBean();
-		bean.setFilter(new DebugFilter());
-		bean.addUrlPatterns("/*");
-		return bean;
-	}
+    // filtro para debug,
+    @Bean
+    public FilterRegistrationBean filtroDebug() {
+        FilterRegistrationBean bean = new FilterRegistrationBean();
+        bean.setFilter(new DebugFilter());
+        bean.addUrlPatterns("/*");
+        return bean;
+    }
 
-	// filtro para as requisicoes restritas
-	@Bean
-	public FilterRegistrationBean filtroJwt() {
-		FilterRegistrationBean bean = new FilterRegistrationBean();
-		bean.setFilter(tokenFilter);
-		bean.addUrlPatterns("/restrict/*");
+    // filtro para as requisicoes restritas
+    @Bean
+    public FilterRegistrationBean filtroJwt() {
+        FilterRegistrationBean bean = new FilterRegistrationBean();
+        bean.setFilter(tokenFilter);
+        bean.addUrlPatterns("/restrict/*");
 
-		return bean;
-	}
+        return bean;
+    }
 
-	// configurar o mapper para não enviar \r\n no json
-	@Bean
-	public Jackson2ObjectMapperBuilder jacksonBuilder() {
-		ObjectMapper mapper = new ObjectMapper();
-		mapper.configure(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY, true);
-		Jackson2ObjectMapperBuilder b = new Jackson2ObjectMapperBuilder();
-		b.indentOutput(false).dateFormat(new SimpleDateFormat("yyyy-MM-dd"));
-		b.failOnUnknownProperties(false);
-		b.configure(mapper);
-		return b;
-	}
+    // configurar o mapper para não enviar \r\n no json
+    @Bean
+    public Jackson2ObjectMapperBuilder jacksonBuilder() {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY, true);
+        Jackson2ObjectMapperBuilder b = new Jackson2ObjectMapperBuilder();
+        b.indentOutput(false).dateFormat(new SimpleDateFormat("yyyy-MM-dd"));
+        b.failOnUnknownProperties(false);
+        b.configure(mapper);
+        return b;
+    }
 
-	// configura o multipart
-	@Bean
-	MultipartConfigElement multipartConfigElement() {
-		MultipartConfigFactory factory = new MultipartConfigFactory();
-		factory.setMaxFileSize("10MB");
-		factory.setMaxRequestSize("10MB");
-		factory.setLocation(System.getProperty("java.io.tmpdir"));
-		return factory.createMultipartConfig();
-	}
+    // configura o multipart
+    @Bean
+    MultipartConfigElement multipartConfigElement() {
+        MultipartConfigFactory factory = new MultipartConfigFactory();
+        factory.setMaxFileSize("10MB");
+        factory.setMaxRequestSize("10MB");
+        factory.setLocation(System.getProperty("java.io.tmpdir"));
+        return factory.createMultipartConfig();
+    }
 
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		// Customize the application or call application.sources(...) to add
-		// sources
-		// Since our example is itself a @Configuration class (via
-		// @SpringBootApplication)
-		// we actually don't need to override this method.
-		return application.sources(SimpleApiApplication.class);
-	}
+    @Bean
+    public ModelMapper modelMapper() {
+        return new ModelMapper();
+    }
 
-	// Start inicial do app
-	public static void main(String[] args) {
-		SpringApplication.run(SimpleApiApplication.class, args);
-	}
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        // Customize the application or call application.sources(...) to add
+        // sources
+        // Since our example is itself a @Configuration class (via
+        // @SpringBootApplication)
+        // we actually don't need to override this method.
+        return application.sources(SimpleApiApplication.class);
+    }
+
+    // Start inicial do app
+    public static void main(String[] args) {
+        SpringApplication.run(SimpleApiApplication.class, args);
+    }
 }
