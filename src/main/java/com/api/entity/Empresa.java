@@ -1,5 +1,6 @@
 package com.api.entity;
 
+import com.api.converter.GenericEntity;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
@@ -22,16 +23,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "empresa")
 @XmlRootElement
-public class Empresa implements Serializable {
+public class Empresa extends GenericEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-
-    @OneToMany(mappedBy = "empresaId", fetch = FetchType.EAGER)
-    private List<Usuario> usuarioList;
 
     @Basic(optional = false)
     @NotNull
@@ -46,11 +44,11 @@ public class Empresa implements Serializable {
     @Basic(optional = false)
     @Size(max = 50)
     @NotNull
-    @Column(name = "razaoSocial")
+    @Column(name = "razao_social")
     private String razaoSocial;
 
     @Size(min = 1, max = 50)
-    @Column(name = "nomeFantasia")
+    @Column(name = "nome_fantasia")
     private String nomeFantasia;
 
     @Size(min = 1, max = 50)
@@ -88,6 +86,9 @@ public class Empresa implements Serializable {
 
     @Column(name = "ativo")
     private Boolean ativo;
+
+    @OneToMany(mappedBy = "empresaId", fetch = FetchType.EAGER)
+    private List<Usuario> usuarioList;
 
     @Override
     public int hashCode() {

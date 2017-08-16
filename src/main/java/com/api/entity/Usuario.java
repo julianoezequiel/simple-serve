@@ -1,5 +1,6 @@
 package com.api.entity;
 
+import com.api.converter.GenericEntity;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -27,7 +28,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "usuario")
 @XmlRootElement
-public class Usuario implements Serializable {
+public class Usuario extends GenericEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -43,13 +44,6 @@ public class Usuario implements Serializable {
 
     @Column(name = "senha")
     private String senha;
-
-    @JoinColumn(name = "empresa_id", referencedColumnName = "id")
-    @ManyToOne
-    private Empresa empresaId;
-
-    @ManyToMany(mappedBy = "usuarioList")
-    private List<Permissao> permissaoList;
 
     @Column(name = "ativo")
     private Boolean ativo;
@@ -74,6 +68,13 @@ public class Usuario implements Serializable {
     @Column(name = "dataHoraBloqueioSenha")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataHoraBloqueioSenha;
+
+    @JoinColumn(name = "empresa_id", referencedColumnName = "id")
+    @ManyToOne
+    private Empresa empresaId;
+
+    @ManyToMany(mappedBy = "usuarioList")
+    private List<Permissao> permissaoList;
 
     public Usuario() {
     }

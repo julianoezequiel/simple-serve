@@ -6,15 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.modelmapper.ModelMapper;
 
 @Service
 public class ApiService {
 
-	public final static Logger LOGGER = LoggerFactory.getLogger(ApiService.class.getName());
+    public final static Logger LOGGER = LoggerFactory.getLogger(ApiService.class.getName());
 
-	
-	@Autowired
-	private ObjectMapper mapper;
+    @Autowired
+    public ModelMapper modelMapper;
+    @Autowired
+    public ObjectMapper mapper;
 
-	
 }

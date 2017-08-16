@@ -1,5 +1,8 @@
 package com.api.entity;
 
+import com.api.constantes.CONSTANTES;
+import com.api.converter.GenericEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
@@ -22,7 +25,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "permissao")
 @XmlRootElement
-public class Permissao implements Serializable {
+public class Permissao extends GenericEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,10 +37,14 @@ public class Permissao implements Serializable {
     @ManyToOne
     private Modulo moduloId;
 
+    @Column(name = "permissao")
+    private CONSTANTES.PERMISSAO permissao;
+
     @JoinTable(name = "permissaoUsuario", joinColumns = {
         @JoinColumn(name = "id_permissao", referencedColumnName = "id")}, inverseJoinColumns = {
         @JoinColumn(name = "id_usuario", referencedColumnName = "id")})
     @ManyToMany(fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<Usuario> usuarioList;
 
     @Size(max = 45)
@@ -74,6 +81,14 @@ public class Permissao implements Serializable {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public CONSTANTES.PERMISSAO getPermissao() {
+        return permissao;
+    }
+
+    public void setPermissao(CONSTANTES.PERMISSAO permissao) {
+        this.permissao = permissao;
     }
 
     @Override

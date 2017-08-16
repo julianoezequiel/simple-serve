@@ -4,7 +4,7 @@ import com.api.converter.GenericDTO;
 import com.api.entity.Empresa;
 import com.api.entity.TipoDocumento;
 
-public class EmpresaDTO {
+public class EmpresaDTO extends GenericDTO {
 
     private Integer id;
     private String documento;

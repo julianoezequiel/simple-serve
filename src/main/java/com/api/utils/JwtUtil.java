@@ -1,5 +1,9 @@
 package com.api.utils;
 
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.JwtException;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,17 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
-import com.api.contantes.CONSTANTES;
+import com.api.constantes.CONSTANTES;
 import com.api.dto.UsuarioDTO;
-import com.api.dto.UsuarioLoginDTO;
 import com.api.entity.Usuario;
 import com.api.service.ServiceException;
 import com.api.service.auth.UsuarioService;
-
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.JwtException;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 
 @Component
 public class JwtUtil {

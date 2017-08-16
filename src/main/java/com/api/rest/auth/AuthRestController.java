@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.api.contantes.CONSTANTES;
+import com.api.constantes.CONSTANTES;
 import com.api.dto.TokenDTO;
 import com.api.dto.UsuarioDTO;
 import com.api.dto.UsuarioLoginDTO;

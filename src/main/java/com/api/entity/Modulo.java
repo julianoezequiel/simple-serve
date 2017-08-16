@@ -1,5 +1,8 @@
 package com.api.entity;
 
+import com.api.constantes.CONSTANTES;
+import com.api.converter.GenericEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
@@ -20,7 +23,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "modulos")
 @XmlRootElement
-public class Modulo implements Serializable {
+public class Modulo extends GenericEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +36,11 @@ public class Modulo implements Serializable {
     @NotNull
     private String descricao;
 
+    @Column(name = "modulo")
+    private CONSTANTES.MODULOS modulo;
+
     @OneToMany(mappedBy = "moduloId", fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<Permissao> permissaoList;
 
     public Integer getId() {
@@ -58,6 +65,14 @@ public class Modulo implements Serializable {
 
     public void setPermissaoList(List<Permissao> permissaoList) {
         this.permissaoList = permissaoList;
+    }
+
+    public CONSTANTES.MODULOS getModulo() {
+        return modulo;
+    }
+
+    public void setModulo(CONSTANTES.MODULOS modulo) {
+        this.modulo = modulo;
     }
 
     @Override
