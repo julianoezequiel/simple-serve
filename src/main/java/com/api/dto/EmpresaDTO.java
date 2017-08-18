@@ -21,6 +21,9 @@ public class EmpresaDTO extends GenericDTO {
     private String observacao;
     private Boolean ativo;
 
+    public EmpresaDTO() {
+    }
+
     public EmpresaDTO(Empresa e) {
         this.ativo = e.getAtivo();
         this.bairro = e.getBairro();

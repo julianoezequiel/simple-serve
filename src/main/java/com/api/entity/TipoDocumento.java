@@ -1,5 +1,6 @@
 package com.api.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
@@ -35,6 +36,7 @@ public class TipoDocumento implements Serializable {
     private String descricao;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tipoDocumento")
+    @JsonIgnore
     private List<Empresa> empresaList;
 
     public Integer getId() {

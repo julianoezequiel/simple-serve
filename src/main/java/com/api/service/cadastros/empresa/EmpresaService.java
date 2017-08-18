@@ -1,4 +1,4 @@
-package com.api.service;
+package com.api.service.cadastros.empresa;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,6 +23,10 @@ public class EmpresaService implements IConverter<EmpresaDTO, Empresa> {
     private EmpresaRepository empresaRepository;
     @Autowired
     private ModelMapper modelMapper;
+
+    public List<Empresa> listar() {
+        return this.empresaRepository.findAll();
+    }
 
     public List<EmpresaDTO> buscarTodas() {
         List<Empresa> empresas = this.empresaRepository.findAll();

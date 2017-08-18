@@ -17,7 +17,7 @@ import org.springframework.web.filter.GenericFilterBean;
 import com.api.constantes.CONSTANTES;
 import com.api.entity.Usuario;
 import com.api.service.ServiceException;
-import com.api.service.auth.UsuarioService;
+import com.api.service.cadastros.usuario.UsuarioService;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;

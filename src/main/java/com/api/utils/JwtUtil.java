@@ -16,7 +16,7 @@ import com.api.constantes.CONSTANTES;
 import com.api.dto.UsuarioDTO;
 import com.api.entity.Usuario;
 import com.api.service.ServiceException;
-import com.api.service.auth.UsuarioService;
+import com.api.service.cadastros.usuario.UsuarioService;
 
 @Component
 public class JwtUtil {

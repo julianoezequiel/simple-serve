@@ -1,5 +1,6 @@
 package com.api.service.auth;
 
+import com.api.service.cadastros.usuario.UsuarioService;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;

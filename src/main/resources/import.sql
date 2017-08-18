@@ -16,3 +16,9 @@ insert into empresa (id,razao_social,nome_fantasia,documento,tipo_documento_Id,e
 
 insert into usuario (email,senha,ativo,empresa_id) value ('admin@admin.com','12345',1,true);
 insert into usuario (email,senha,ativo,empresa_id) value ('juliano@gmail.com','12345',1,true);
+
+insert into permissao_usuario (id_permissao,id_usuario) value (1,1);
+insert into permissao_usuario (id_permissao,id_usuario) value (2,1);
+
+insert into permissao_usuario (id_permissao,id_usuario) value (2,2);
+

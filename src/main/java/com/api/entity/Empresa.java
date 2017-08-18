@@ -1,6 +1,7 @@
 package com.api.entity;
 
 import com.api.converter.GenericEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
@@ -87,7 +88,8 @@ public class Empresa extends GenericEntity implements Serializable {
     @Column(name = "ativo")
     private Boolean ativo;
 
-    @OneToMany(mappedBy = "empresaId", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "empresaId", fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Usuario> usuarioList;
 
     @Override

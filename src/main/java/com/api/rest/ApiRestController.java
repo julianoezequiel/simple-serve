@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.api.entity.Usuario;
 import com.api.service.ServiceException;
-import com.api.service.auth.UsuarioService;
+import com.api.service.cadastros.usuario.UsuarioService;
 import com.api.utils.JwtUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 

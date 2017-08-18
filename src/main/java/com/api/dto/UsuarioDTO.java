@@ -1,14 +1,14 @@
 package com.api.dto;
 
 import com.api.converter.GenericDTO;
-import com.api.entity.Empresa;
+import java.util.List;
 
 public class UsuarioDTO extends GenericDTO {
 
     private Integer id;
     private String email;
-    private Empresa empresaId;
-    private PermissaoDTO permissoes;
+    private EmpresaDTO empresa;
+    private List<PermissaoDTO> permissoes;
 
     public String getEmail() {
         return email;
@@ -26,20 +26,20 @@ public class UsuarioDTO extends GenericDTO {
         this.id = id;
     }
 
-    public Empresa getEmpresaId() {
-        return empresaId;
-    }
-
-    public void setEmpresaId(Empresa empresaId) {
-        this.empresaId = empresaId;
-    }
-
-    public PermissaoDTO getPermissoes() {
+    public List<PermissaoDTO> getPermissoes() {
         return permissoes;
     }
 
-    public void setPermissoes(PermissaoDTO permissoes) {
+    public void setPermissoes(List<PermissaoDTO> permissoes) {
         this.permissoes = permissoes;
+    }
+
+    public void setEmpresa(EmpresaDTO empresa) {
+        this.empresa = empresa;
+    }
+
+    public EmpresaDTO getEmpresa() {
+        return empresa;
     }
 
 }
