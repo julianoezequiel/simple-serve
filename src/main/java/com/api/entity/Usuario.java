@@ -69,6 +69,9 @@ public class Usuario extends GenericEntity implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataHoraBloqueioSenha;
 
+    @Column(name = "admin")
+    private Boolean admin;
+
     @JoinColumn(name = "empresa_id", referencedColumnName = "id")
     @ManyToOne
     private Empresa empresaId;
@@ -177,6 +180,14 @@ public class Usuario extends GenericEntity implements Serializable {
 
     public void setDataHoraBloqueioSenha(Date dataHoraBloqueioSenha) {
         this.dataHoraBloqueioSenha = dataHoraBloqueioSenha;
+    }
+
+    public Boolean getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Boolean admin) {
+        this.admin = admin;
     }
 
     @Override

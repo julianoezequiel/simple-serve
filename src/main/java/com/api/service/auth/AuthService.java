@@ -62,20 +62,4 @@ public class AuthService extends ApiService {
         return tokenDTO;
     }
 
-    public UsuarioDTO userAutenticado(HttpServletRequest request) throws ServiceException {
-        UsuarioDTO usuario = this.jwtUtil.extractToken(request);
-        if (usuario == null) {
-            throw new ServiceException(HttpStatus.UNAUTHORIZED, "Token inválido");
-        }
-        return usuario;
-    }
-
-    public Usuario usuarioAutenticado(HttpServletRequest request) throws ServiceException {
-        Usuario usuario = this.jwtUtil.extractTokenUsuario(request);
-        if (usuario == null) {
-            throw new ServiceException(HttpStatus.UNAUTHORIZED, "Token inválido");
-        }
-        return usuario;
-    }
-
 }

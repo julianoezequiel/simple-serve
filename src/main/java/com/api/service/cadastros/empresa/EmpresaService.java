@@ -36,7 +36,10 @@ public class EmpresaService implements IConverter<EmpresaDTO, Empresa> {
 
     @Override
     public EmpresaDTO convertFromEntity(Empresa entity) {
-        EmpresaDTO empresaDTO = this.modelMapper.map(entity, EmpresaDTO.class);
+        EmpresaDTO empresaDTO = null;
+        if (entity != null) {
+            empresaDTO = this.modelMapper.map(entity, EmpresaDTO.class);
+        }
         return empresaDTO;
     }
 

@@ -9,6 +9,7 @@ public class UsuarioDTO extends GenericDTO {
     private String email;
     private EmpresaDTO empresa;
     private List<PermissaoDTO> permissoes;
+    private Boolean admin;
 
     public String getEmail() {
         return email;
@@ -40,6 +41,14 @@ public class UsuarioDTO extends GenericDTO {
 
     public EmpresaDTO getEmpresa() {
         return empresa;
+    }
+
+    public Boolean getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Boolean admin) {
+        this.admin = admin;
     }
 
 }

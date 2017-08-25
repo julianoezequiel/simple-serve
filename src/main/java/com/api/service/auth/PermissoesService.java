@@ -34,13 +34,16 @@ public class PermissoesService extends ApiService implements IConverter<Permissa
 
     @Override
     public PermissaoDTO convertFromEntity(Permissao entity) {
-        PermissaoDTO permissaoDTO = this.modelMapper.map(entity, PermissaoDTO.class);
-        permissaoDTO.setModuloDTO(this.moduloService.convertFromEntity(entity.getModuloId()));
+        PermissaoDTO permissaoDTO = null;
+        if (entity != null) {
+            permissaoDTO = this.modelMapper.map(entity, PermissaoDTO.class);
+            permissaoDTO.setModuloDTO(this.moduloService.convertFromEntity(entity.getModuloId()));
+        }
         return permissaoDTO;
     }
 
     private List<PermissaoDTO> convertFromEntityList(List<Permissao> list) {
-        return list.stream().map(f->convertFromEntity(f)).collect(Collectors.toList());
+        return list.stream().map(f -> convertFromEntity(f)).collect(Collectors.toList());
     }
 
     @Override

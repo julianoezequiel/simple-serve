@@ -30,7 +30,10 @@ public class ModuloService extends ApiService implements IConverter<ModuloDTO, M
 
     @Override
     public ModuloDTO convertFromEntity(Modulo entity) {
-        ModuloDTO moduloDTO = this.modelMapper.map(entity, ModuloDTO.class);
+        ModuloDTO moduloDTO = null;
+        if (entity != null) {
+            moduloDTO = this.modelMapper.map(entity, ModuloDTO.class);
+        }
         return moduloDTO;
     }
 
