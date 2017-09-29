@@ -14,7 +14,7 @@ import java.io.Serializable;
  * @author juliano.ezequiel
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-@JsonTypeInfo(use = JsonTypeInfo.Id.CLASS, include = JsonTypeInfo.As.PROPERTY)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY)
 @JsonSubTypes({
     @JsonSubTypes.Type(value = UsuarioDTO.class),
     @JsonSubTypes.Type(value = ModuloDTO.class),

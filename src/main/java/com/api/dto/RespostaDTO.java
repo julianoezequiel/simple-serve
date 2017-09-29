@@ -22,16 +22,19 @@ public class RespostaDTO {
     }
 
     public RespostaDTO(String message, HttpStatus httpStatus) {
+        super();
         this.content = message;
         this.httpStatus = httpStatus;
     }
 
     public RespostaDTO(GenericDTO genericDTO, HttpStatus httpStatus) {
+        super();
         this.genericDTO = genericDTO;
         this.httpStatus = httpStatus;
     }
 
     public RespostaDTO(GenericDTO genericDTO, String message) {
+        super();
         this.content = message;
         this.genericDTO = genericDTO;
     }
