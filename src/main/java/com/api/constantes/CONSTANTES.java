@@ -18,7 +18,7 @@ public class CONSTANTES {
         DEFAULT,
         CADASTROS,
         FINANCEIRO,
-        CONTROEL_ESTOQUE,
+        CONTROLE_ESTOQUE,
         RELATORIOS,
         CONFIGURACOES
     }

@@ -3,12 +3,14 @@ package com.api.dto;
 import com.api.constantes.CONSTANTES;
 import com.api.converter.GenericDTO;
 import com.api.entity.Permissao;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.List;
 
 /**
  *
  * @author juliano.ezequiel
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ModuloDTO extends GenericDTO {
 
     private Integer id;

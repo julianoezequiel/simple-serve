@@ -2,12 +2,14 @@ package com.api.dto;
 
 import com.api.constantes.CONSTANTES;
 import com.api.converter.GenericDTO;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.http.HttpStatus;
 
 /**
  *
  * @author juliano.ezequiel
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class RespostaDTO {
 
     public String content;

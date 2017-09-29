@@ -1,8 +1,10 @@
 package com.api.dto;
 
 import com.api.converter.GenericDTO;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.List;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class UsuarioDTO extends GenericDTO {
 
     private Integer id;

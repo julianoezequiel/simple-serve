@@ -6,6 +6,14 @@ insert into modulos (id,descricao,modulo) value (5,'Configurações',5);
 
 insert into permissao (id,descricao,modulo_id,permissao) value (1,'Usuarios',1,1);
 insert into permissao (id,descricao,modulo_id,permissao) value (2,'Clientes',1,2);
+insert into permissao (id,descricao,modulo_id,permissao) value (3,'Usuarios',2,1);
+insert into permissao (id,descricao,modulo_id,permissao) value (4,'Clientes',2,2);
+insert into permissao (id,descricao,modulo_id,permissao) value (5,'Usuarios',3,1);
+insert into permissao (id,descricao,modulo_id,permissao) value (6,'Clientes',3,2);
+insert into permissao (id,descricao,modulo_id,permissao) value (7,'Usuarios',4,1);
+insert into permissao (id,descricao,modulo_id,permissao) value (8,'Clientes',4,2);
+insert into permissao (id,descricao,modulo_id,permissao) value (9,'Usuarios',5,1);
+insert into permissao (id,descricao,modulo_id,permissao) value (10,'Clientes',5,2);
 
 insert into tipo_documento (id,descricao) value (1,'CNPJ');
 insert into tipo_documento (id,descricao) value (2,'CPF');

@@ -1,11 +1,13 @@
 package com.api.dto;
 
 import com.api.converter.GenericDTO;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  *
  * @author juliano.ezequiel
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PermissaoDTO extends GenericDTO {
 
     private Integer id;
